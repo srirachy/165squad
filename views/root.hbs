@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}!</title>
+    <link rel="stylesheet" href="/stylesheets/root.css">
+</head>
+<body id = "home_background">
+<div class="layer_transparency">
+    <a href="/"><div id = "pinpin">
+        <div class="box">PinPin</div>
+    </div></a>
+    {{#if user}}
+        <div class = "home_motto">{{userFirstName}}FIRSTNAME AND PHOTO WOULD GO HERE</div>
+    {{else}}
+        <a href="/users/login" class="custom-btn-left btn"><span>LOG IN</span></a>
+        <a href="/users/register" class="custom-btn-right btn"><span>SIGN UP</span></a>
+
+        <div class = "home_motto">PIN YOUR F*CKING LIFE</div>
+    {{/if}}
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PinPin</title>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+</head>
+<body id="log_in_background">
+    <div class="layer_fade">
+        <div id = "pinpin">
+            <div class="box"><a href="/">PinPin</a></div>
+        </div>
+        <div class = "log_in_form">
+            <form method="post" action="/users/login">
+                <div class = "form_child">
+                    <div class = "log_in_sub">
+                        <label class = "log_in_label">Email</label>
+                        <input class="log_in_text-field" type="text" placeholder="name@example.com" name="username" autocomplete="off">
+                    </div>
+                    <div class = "log_in_sub">
+                        <label class = "log_in_label">Password</label>
+                        <input class = "log_in_text-field" type="password" name="password">
+                    </div>
+                </div>
+                <button type="submit" class = "log_in_button">Log In</button>
+            </form>
+        </div>
+        <div class="account-option">
+            Don't have an account? <a href="/users/register">Sign up</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -12,6 +12,12 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mysql = require('mysql');
 var db = require('./db');
+var handlebars = require('express-handlebars').create({
+  layoutsDir: path.join(__dirname, "views/layouts"),
+  partialsDir: path.join(__dirname, "views/partials"),
+  defaultLayout: 'layout',
+  extname: 'hbs'
+});
 
 /************************************************************************
  * DATABASE CONNECTION
@@ -36,8 +42,10 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('hbs', exphbs({defaultLayout: 'layout', extname: '.hbs'}));
+//app.engine('hbs', exphbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', 'hbs');
+app.engine('hbs', handlebars.engine);
+
 
 // BodyParser Middleware
 app.use(bodyParser.json({limit: '50mb'}));
@@ -136,3 +144,4 @@ process.chdir(path.join(process.cwd(), '..'));
 
 module.exports = app;
 
+    

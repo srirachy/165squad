@@ -6,6 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/../165squad-AdrianDev/temp" />
       <excludeFolder url="file://$MODULE_DIR$/../165squad-AdrianDev/tmp" />
     </content>
+    <content url="file://$MODULE_DIR$/node_modules/jquery.cookie" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

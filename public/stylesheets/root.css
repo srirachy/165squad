@@ -32,7 +32,7 @@ html, body {
 }
 @keyframes fadein {
     from {
-        opacity:0;
+        opacity:0.1;
     }
     to {
         opacity: 0.8;

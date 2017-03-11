@@ -2,12 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PinPin</title>
+    <title>PinPin </title>
     <link rel="stylesheet" href="/stylesheets/home.css">
 </head>
+{{#if logincheck}}
+    <div class = "loading-board">
+        <div class = "wrapper">
+            <span class="loader"><span class="loader-inner"></span></span>
+            <span class="loader-text">Welcome {{userFirstName}}!</span>
+        </div>
+    </div>
+    <script>
+        $(".loading-board").delay(5000).fadeOut(400);
+    </script>
+{{/if}}
 <body id = "profile_background">
-<div class = "bar-left"></div>
-
     <div class="bio">
         <div id="profile_photo"></div>
         <div id="name">{{userFirstName}} {{userLastName}}</div>

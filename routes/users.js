@@ -10,6 +10,8 @@ var request = require('request');
 
 var User = require('../models/user');
 
+var first_login = {switch : true};
+
 var profilePicturesDir = path.join(__dirname, '../public/uploads/ProfilePictures/');
 
 // Display registeration form
@@ -86,7 +88,7 @@ router.get('/login', function(req, res) {
 router.post('/login',
   passport.authenticate('local', {successRedirect:'/users/home', failureRedirect:'/users/login',failureFlash: true}),
   function(req, res) {
-    res.redirect('/');
+    	res.redirect('/');
 });
 
 // helper method for login validation
@@ -101,6 +103,7 @@ passport.use(new LocalStrategy(
    	User.comparePassword(password, user.Password, function(err, isMatch){
    		if(err) throw err;
    		if(isMatch){
+
    			return done(null, user);
    		} else {
    			return done(null, false, {message: 'Invalid password'});
@@ -126,14 +129,17 @@ router.get('/logout', function(req, res){
 
 	req.flash('success_msg', 'You are logged out');
 
+    first_login.switch = true;
+
 	res.redirect('/users/login');
 });
 
-
 // Home Page
-router.get('/home', function(req, res) {
-	res.render('home', {userFirstName: req.user.FirstName,userLastName: req.user.LastName, home: true, feed: false, edit_account: false});
-
+router.get('/home', function(req, res)
+{
+    res.render('home', {userFirstName: req.user.FirstName,userLastName: req.user.LastName,
+		home: true, feed: false, logincheck: first_login.switch});
+    	first_login.switch = false;
 });
 
 //feed

@@ -28,35 +28,40 @@ exports.getUserById = function(id, done){
   	})
 }
 
-exports.updateGeneric = function(updateObject, done){
-	db.get().query('UPDATE ' + updateObject.table + ' SET ? WHERE ?', updateObject.params, function (err, rows) {
+exports.update = function(params, done){
+	db.get().query('UPDATE ' + params.table + ' SET ? WHERE ?', [params.set, params.where], function (err, rows) {
     	if (err) return done(err)
     	done(null, rows)
   	})
 }
 
-exports.selectGeneric = function(selectObject, done){
-	db.get().query('SELECT * FROM ' + selectObject.table + ' WHERE ?', selectObject.params, function (err, rows) {
+exports.select = function(params, done){
+	db.get().query('SELECT * FROM ' + params.from + ' WHERE ?', params.where, function (err, rows) {
     	if (err) return done(err)
     	done(null, rows)
   	})
 }
 
-exports.insertGeneric = function(insertObject, done){
-	db.get().query('INSERT INTO ' + insertObject.table + ' SET ?', insertObject.params, function (err, rows) {
+exports.insert = function(params, done){
+	db.get().query('INSERT INTO ' + params.into + ' SET ?', params.values, function (err, rows) {
     	if (err) return done(err)
     	done(null, rows.insertId);
   	})
 }
 
-exports.deleteGeneric = function(deleteObject, done){
-	db.get().query('DELETE FROM ' + deleteObject.table + ' WHERE ?', deleteObject.params, function (err, rows) {
+exports.delete = function(params, done){
+	db.get().query('DELETE FROM ' + params.from + ' WHERE ?', params.where, function (err, rows) {
     	if (err) return done(err)
     	done(null, rows)
   	})
 }
 
-
+exports.getCategories = function(params, done){
+  db.get().query('SELECT * FROM ' + params.from, function (err, rows) {
+      if (err) return done(err)
+      done(null, rows)
+    })
+}
 
 exports.comparePassword = function(candidatePassword, hash, callback){
 	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {

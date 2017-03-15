@@ -10,6 +10,11 @@
         <div id = "pinpin">
             <div class="box"><a href="/">PinPin</a></div>
         </div>
+        {{#if error}}
+            <div id="flash-message"><div class="cross"></div>
+                {{error}}
+            </div>
+        {{/if}}
         <div class = "log_in_form">
             <form method="post" action="/users/login">
                 <div class = "form_child">

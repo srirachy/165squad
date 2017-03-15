@@ -34,6 +34,7 @@ db.connect(db.MODE_PRODUCTION, function(err){
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var forms = require('./routes/forms');
+var apis = require('./routes/apis');
 
 // Init App
 var app = express();
@@ -105,6 +106,7 @@ app.use(logger('dev'));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/forms', forms);
+app.use('/api', apis);
 
 
 // catch 404 and forward to error handler

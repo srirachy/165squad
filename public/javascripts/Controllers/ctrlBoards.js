@@ -22,9 +22,10 @@ angular.module('myApp').controller('ctrlBoards', ['$scope', '$uibModal', '$log',
           });
 
           $scope.board = board;
+          $scope.index = index;
           $scope.editableBoard = angular.copy($scope.board);
           if(index == -1){  // if creating new
-            // do stuff if needed
+            $scope.editableBoard.Private = 0;
           }          
 
           // Save & Close Button on Modal Form
@@ -38,8 +39,8 @@ angular.module('myApp').controller('ctrlBoards', ['$scope', '$uibModal', '$log',
                 $scope.board.Private = $scope.editableBoard.Private;
                 method = 'update';
               }
-              $scope.editableBoard.method = method;              
-              $uibModalInstance.close($scope.editableBoard);              
+              $scope.editableBoard.method = method;
+              $uibModalInstance.close($scope.editableBoard);  
           };
 
           $scope.cancel = function () {

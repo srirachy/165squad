@@ -10,6 +10,8 @@
     <div class = "board">
 	<div class="modal-header">
     	<h3 class="modal-title text-center text-danger">New Board</h3>
+    	<h3 class="modal-title text-center text-danger" ng-show="index==-1">Create your new board</h3>
+    	<h3 class="modal-title text-center text-danger" ng-hide="index==-1">Edit your board</h3>
 	</div>
 
 	 <div class="container-fluid">
@@ -36,7 +38,7 @@
 			</div>
 			<div class="form-group ">
 			<label class="control-label" for="private"> Private </label>
-	        	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" name="private" data-ng-model="editableBoard.Private">
+	        	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" ng-true-value= 1 name="private" data-ng-model="editableBoard.Private">
 	        	<label for="cmn-toggle-1"></label>
 		    </div>
 

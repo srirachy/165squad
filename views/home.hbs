@@ -58,6 +58,16 @@
             <div class="element" ng-repeat="board in boards|limitTo:3">
                 <div style="font-size: 24pt;"><a href="#" ng-click="openBoardFormModal('md', board, $index)"><%board.Name%></a></div>
             </div>
+            <a href="#" ng-repeat="board in boards">
+                <div class="element" ng-mouseenter="options=true" ng-mouseleave="options=false">
+                    <div class="element-title">
+                        <%board.Name%>
+                    </div>
+                    <div>
+                        <button class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)">Edit</button>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 

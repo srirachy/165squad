@@ -340,9 +340,12 @@ a{
      }
 }
 
-.boards-wrapper .container{
+.boards-wrapper .container {
     width: 960px;
     text-align: left;
+}
+.element-title{
+    font-size: 24pt;
 }
 
 .boards-wrapper .container .element{

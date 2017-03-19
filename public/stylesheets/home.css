@@ -81,7 +81,9 @@
 }
 
 .container-box .element{
+    cursor: default;
     display: inline-block;
+    position: relative;
     box-sizing: border-box;
     vertical-align: top;
     height: 220px;
@@ -350,4 +352,18 @@ a{
 
 .boards-wrapper .container .element{
     box-shadow: 0 2px 5px rgba(0,0,0,0.8);
+}
+
+.element .element-edit{
+    cursor: pointer;
+    position: absolute;
+    margin: 10px;
+    font-size: 25px;
+    color: var(--secondary);
+    right: 0;
+    bottom: 0;
+}
+
+.element .glyphicon{
+    cursor: pointer;
 }

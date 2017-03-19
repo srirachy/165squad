@@ -1,3 +1,6 @@
+body{
+    background-color: var(--primary);
+}
 
 :root{
     --primary: #231F20;
@@ -40,7 +43,7 @@
 
 :root.teal{
     --primary: #F0F3BD;
-    --primary-light: #F5F7D5;
+    --primary-light: #FAFBEB;
     --primary-dark1: #C7C9A5;
     --primary-dark2: #C5C79B;
 
@@ -210,4 +213,3 @@
 .nav_elem.active:hover{
     border-top: solid 2px transparent;
 }
-

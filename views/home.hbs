@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="/stylesheets/home.css">
     <script src="/javascripts/Controllers/ctrlBoards.js"></script>
 </head>
+
+<!--initial loading board-->
 {{#if logincheck}}
     <div class = "loading-board">
         <div class = "wrapper">
@@ -17,22 +19,49 @@
         $(".loading-board").delay(5000).fadeOut(400);
     </script>
 {{/if}}
+
+
 <body id = "profile_background">
+
+    <!--showing all boards-->
+    <div id = "show-boards">
+        <div id = "close-show">X</div>
+        <div class="title-secondary">
+            BOARDS
+            <div id="underline"></div>
+        </div>
+        <div class = "boards-wrapper">
+        <div class="container" ng-controller="ctrlBoards">
+            <div class="container-box">
+                <a href="#"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></a>
+                <div class="element" ng-repeat="board in boards">
+                    <div style="font-size: 24pt;"><a href="#" ng-click="openBoardFormModal('md', board, $index)"><%board.Name%></a></div>
+                </div>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    <!--Profile info-->
     <div class="bio">
         <div id="profile_photo"></div>
         <div id="name">{{userFirstName}} {{userLastName}}</div>
     </div>
+
+    <!--Boards-->
     <div class="container" ng-controller="ctrlBoards">
         <div class="title">
-            <a href="#">BOARDS (<%boards.length%>)</a>
+            <a id="board-listener">BOARDS (<%boards.length%>)</a>
         </div>
         <div class="container-box">
             <a href="#"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></a>
-            <div class="element" ng-repeat="board in boards">
+            <div class="element" ng-repeat="board in boards|limitTo:3">
                 <div style="font-size: 24pt;"><a href="#" ng-click="openBoardFormModal('md', board, $index)"><%board.Name%></a></div>
             </div>
         </div>
     </div>
+
+    <!--Pins-->
     <div class="container">
         <div class="title">
             <a href="#">PINS (#)</a>
@@ -45,5 +74,6 @@
         </div>
     </div>
 
+    <script src="/javascripts/home.js"></script>
 </body>
 </html>

@@ -1,0 +1,109 @@
+.board{
+    background-color: var(--primary-dark2);
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+.board .modal-footer{
+    border-color: var(--primary-light);
+}
+
+.modal-header{
+    border-color: var(--secondary);
+}
+
+.board .modal-title{
+    color: var(--secondary);
+    font-size: 18px;
+    letter-spacing: 5px;
+}
+
+.board .container-fluid{
+    width: 85%;
+}
+
+.board .control-label{
+    color: var(--gray-white);
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.board .custom-change{
+    background-color: var(--primary-dark2);
+    border-radius: 0;
+    outline: none;
+    border: 0;
+    color: var(--gray-white);
+    letter-spacing: 1px;
+    border-bottom: solid 1px var(--gray-white);
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.board textarea{
+    height: 65px;
+}
+
+.board .custom-change:focus{
+    border-color: var(--secondary-bright);
+    color: var(--secondary);
+}
+
+input.cmn-toggle-round + label {
+    background-color: var(--primary);
+}
+
+input.cmn-toggle-round + label:before{
+    background-color: var(--primary-light);
+}
+
+input.cmn-toggle-round + label:after{
+    background-color: var(--gray-white);
+}
+
+input.cmn-toggle-round:checked + label:before {
+    background-color: var(--secondary-bright);
+}
+
+.board .btn-danger{
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--secondary);
+    color: var(--primary);
+    border-radius: 2px;
+    letter-spacing: 3px;
+    border: 0;
+    outline: 0;
+}
+
+.board .btn-danger:hover{
+    box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+}
+
+.board .btn-danger:active{
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: 0;
+    outline: 0;
+}
+
+.board .btn-muted{
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: 0;
+    outline: 0;
+    border-radius: 2px;
+    letter-spacing: 3px;
+}
+
+.board .btn-muted:hover{
+    box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+}
+
+.board .btn-muted:active{
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: 0;
+    outline: 0;
+}

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <link rel="stylesheet" href="/stylesheets/boardform.css">
 </head>
-<style>
 
-
-</style>
 <body>
+
 <div ng-cloak>
+    <div class = "board">
 	<div class="modal-header">
-    	<h3 class="modal-title text-center text-danger">Board</h3>
+    	<h3 class="modal-title text-center text-danger">New Board</h3>
 	</div>
+
 	 <div class="container-fluid">
 	  <div class="row">
 	   <div class="col-md-12">
@@ -21,15 +21,15 @@
 		      <span class="asteriskField"> * </span>
 		       Name
 		      </label>
-		      <input type="text" class="form-control" id="name" name="name" placeholder="" autofocus="autofocus" data-ng-model="editableBoard.Name" required>
+		      <input type="text" class="form-control custom-change" id="name" name="name" placeholder="" autofocus="autofocus" data-ng-model="editableBoard.Name" required>
 		    </div>
 		    <div class="form-group ">
 		      <label class="control-label" for="description"> Description </label>
-		      <textarea class="form-control" cols="40" id="description" name="description" rows="4" data-ng-model="editableBoard.Description"></textarea>
-		    </div>
+		      <textarea class="form-control custom-change" cols="40" id="description" name="description" rows="4" data-ng-model="editableBoard.Description" ></textarea>
+            </div>
 		    <div class="form-group ">
 		     <label class="control-label" for="category"> Category </label>
-		      <select class="select form-control" id="category" name="category" data-ng-model="editableBoard.Category">
+		      <select class="select custom-change form-control" id="category" name="category" data-ng-model="editableBoard.Category">
 		       <!-- <option value="Choose..." hidden>Choose...</option> -->
 		       <option ng-repeat="category in categories" value="<%category.Category%>"><%category.Category%></option>
 		      </select>
@@ -39,21 +39,21 @@
 	        	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" name="private" data-ng-model="editableBoard.Private">
 	        	<label for="cmn-toggle-1"></label>
 		    </div>
-    
+
 	    </form>
 	    <div class="modal-footer">
 	    	<div class="footer-buttons" style="">
-	    		<button style="float:right" class="btn btn-danger btn-lg" type="button" ng-click="save()" ng-disabled="boardForm.$invalid">Save</button>
+	    		<button style="float:right" class="btn btn-danger btn-lg save-btn" type="button" ng-click="save()" ng-disabled="boardForm.$invalid">Save</button>
 	    		<div class="divider"></div>
-	    		<button style="margin-right: 25px;" class="btn btn-muted btn-lg" type="button" ng-click="cancel()">Cancel</button>
-	            
+	    		<button style="margin-right: 25px;" class="btn btn-muted btn-lg cancel-btn" type="button" ng-click="cancel()">Cancel</button>
+
 	            <button style="float:left;" class="btn btn-muted btn-lg" type="button" ng-click="delete(board)" ng-hide="editableBoard.BoardKey == 0">Delete</button>
             </div>
-            
 		</div>
 	   </div>
 	  </div>
 	 </div>
+    </div>
 </div>
 </body>
 </html>

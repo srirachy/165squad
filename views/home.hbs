@@ -21,7 +21,7 @@
 {{/if}}
 
 
-<body id = "profile_background">
+<body id = "profile_background" ng-controller="ctrlBoards">
 
     <!--showing all boards-->
     <div id = "show-boards">
@@ -31,7 +31,7 @@
             <div id="underline"></div>
         </div>
         <div class = "boards-wrapper">
-        <div class="container" ng-controller="ctrlBoards">
+        <div class="container">
             <div class="container-box">
                 <a href="#"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></a>
                 <a href="#" ng-repeat="board in boards">
@@ -56,7 +56,7 @@
     </div>
 
     <!--Boards-->
-    <div class="container" ng-controller="ctrlBoards">
+    <div class="container">
         <div class="title">
             <a id="board-listener">BOARDS (<%boards.length%>)</a>
         </div>

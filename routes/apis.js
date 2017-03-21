@@ -108,4 +108,19 @@ router.get('/categories', function(req, res) {
 	});
 });
 
+//Delete user
+router.post('/users/delete', function(req, res) {
+	var params = {from: 'User', where:{UserKey: req.user.UserKey}};
+	async.series([function(callback){
+		User.delete(params,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	}], function(err, results){
+		res.redirect('/users/logout');
+	});
+});
+
+
+
 module.exports = router;

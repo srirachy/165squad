@@ -9,7 +9,6 @@ html, body {
 #log_in_background {
     background:url("bg1.jpg") no-repeat center center fixed;
     background-color: #231F20;
-    font-family: Tahoma, Verdana, Segoe, sans-serif;
 
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
@@ -100,7 +99,6 @@ a{
 }
 
 .log_in_label{
-    font-family: Tahoma, Verdana, Segoe, sans-serif;
     font-size: 14px;
     margin-right: 10px;
     letter-spacing: 3px;
@@ -108,7 +106,6 @@ a{
 }
 
 .log_in_sub .log_in_text-field{
-    font-family: Tahoma, Verdana, Segoe, sans-serif;
     padding: 5px;
     font-size: 15px;
     background-color: #231F20;
@@ -143,11 +140,10 @@ a{
 
 .log_in_button {
     padding: 10px 25px;
-    font-family: 'Roboto', sans-serif;
     color: #F7F7F7;
     border: 1px solid #1A1718;
     border-top: 0;
-    font-size: 16px;
+    font-size: 12px;
     letter-spacing: 3px;
     background: #231F20;
     outline: none !important;

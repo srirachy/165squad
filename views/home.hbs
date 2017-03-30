@@ -25,25 +25,41 @@
 
     <!--showing all boards-->
     <div id = "show-boards">
-        <div id = "close-show">X</div>
+        <div id = "close-show">x</div>
         <div class="title-secondary">
             BOARDS
             <div id="underline"></div>
+        </div>
+        <div class="filter-buttons">
+            <span class="f-b-wrapper" id="all">All</span>
+            <span class="f-b-wrapper" id="public">Public</span>
+            <span class="f-b-wrapper" id="private">Private</span>
         </div>
         <div class = "boards-wrapper">
         <div class="container">
             <div class="container-box">
                 <a href="#"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></a>
-                <a href="#" ng-repeat="board in boards">
-                    <div class="element" ng-mouseenter="options=true" ng-mouseleave="options=false">
-                        <div class="element-title">
-                            <%board.Name%>
+
+                <span id="all-boards">
+                    <a href="#" ng-repeat="board in boards">
+                        <div class="element" ng-mouseenter="options=true" ng-mouseleave="options=false">
+                            <div class="element-title">
+                                <%board.Name%>
+                            </div>
+                            <div>
+                                <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                </span>
+
+                <span id="public-boards">
+                    public boards go here
+                </span>
+
+                <span id="private-boards">
+                    private boards go here<br>add button's form here can have the private boolean set to true since it is under "private" section?
+                </span>
             </div>
         </div>
         </div>
@@ -58,7 +74,8 @@
     <!--Boards-->
     <div class="container">
         <div class="title">
-            <a id="board-listener">BOARDS (<%boards.length%>)</a>
+            BOARDS (<%boards.length%>)
+            <div id="board-listener">VIEW ALL</div>
         </div>
         <div class="container-box">
             <a href="#"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></a>

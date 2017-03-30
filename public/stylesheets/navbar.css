@@ -1,5 +1,6 @@
 body{
     background-color: var(--primary);
+    font-family: 'Quicksand', sans-serif;
 }
 
 :root{
@@ -101,7 +102,6 @@ body{
 }
 
 .nav{
-    font-family: Tahoma, Verdana, Segoe, sans-serif;
     opacity: 1;
     font-weight: 500;
 

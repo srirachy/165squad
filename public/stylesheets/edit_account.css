@@ -5,7 +5,6 @@
 
 #account_background{
     background-color: var(--primary);
-    font-family: Tahoma, Verdana, Segoe, sans-serif;
     opacity: 1;
 
     -webkit-animation: fadein 1s ease; /* Safari, Chrome and Opera > 12.1 */

@@ -5,4 +5,12 @@ router.get('/board', function(req, res, next) {
   res.render('forms/frm_board', {layout: 'forms_layout.hbs'});
 });
 
+router.get('/addPin', function(req, res, next) {
+  res.render('forms/frm_addPin', {layout: 'forms_layout.hbs'});
+});
+
+router.get('/addFromDevice', function(req, res, next) {
+  res.render('forms/frm_addFromDevice', {layout: 'forms_layout.hbs'});
+});
+
 module.exports = router;

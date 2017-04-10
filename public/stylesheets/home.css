@@ -367,3 +367,15 @@ a{
 .element .glyphicon{
     cursor: pointer;
 }
+.modal-dialog,
+.modal-content {
+    /* 80% of window height */
+    /*height: 80%;*/
+    margin-top: 10%;
+}
+
+.modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 320px);
+    overflow-y: scroll;
+}

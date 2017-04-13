@@ -14,35 +14,182 @@
 
 #account_background .container{
     width: 960px;
-    height: 1000px;
     display: block;
     margin: auto;
+    text-align: center;
+    background-color: var(--primary-light);
+    padding: 20px;
 }
 
-.theme-menu{
-    float: right;
+#account_background .title{
+    font-size: 20px;
+    color: var(--secondary);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+#account_background .profile-photo{
+    height: 170px;
+    width: 170px;
+    margin: auto;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.profile-photo .change-photo{
+    cursor: pointer;
     display: block;
-    border: none;
+    margin: auto;
+    margin-left: 65px;
+    margin-top: 55px;
+    position: absolute;
+    font-size: 40px;
+    opacity: 0;
+    color: var(--secondary);
+}
+
+.profile-photo:hover .change-photo{
+    opacity: 1;
+}
+
+.profile-photo .shadow-wrapper{
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 100px;
+    opacity: 0;
+    background-color: var(--primary);
+    transition: all 0.1s ease-in-out;
+}
+
+.profile-photo:hover .shadow-wrapper{
+    opacity: 0.5;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+}
+
+.profile-photo .photo-resize{
+    height: 100%;
+    z-index: 0;
+    vertical-align: middle;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+#account_background .form{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    padding-top: 70px;
+    padding-right: 120px;
+    opacity: 0.9;
+    border-radius: 2px;
+}
+
+#account_background .field-sub{
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+#account_background .text-field{
+    padding: 5px;
+    font-size: 15px;
+    background-color: var(--primary-light);
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid var(--gray-white);
+    color: var(--main-white);
+    letter-spacing: 1px;
+}
+
+#account_background .text-field:focus{
+    -webkit-transition: ease-in 0.2s;
+    -moz-transition: ease-in 0.2s;
+    -ms-transition: ease-in 0.2s;
+    -o-transition: ease-in 0.2s;
+    transition: ease-in 0.2s;
+    color: var(--secondary);
+    border-bottom-color: var(--secondary-bright);
+}
+
+#account_background .label{
+    font-size: 14px;
+    margin-right: 10px;
+    letter-spacing: 3px;
+    color: var(--gray-white);
+}
+
+#account_background .save-button{
+    width: 150px;
+    margin: auto;
+    padding: 10px 25px;
+    color: var(--secondary);
+    border: 1px solid #1A1718;
+    font-size: 18px;
+    letter-spacing: 3px;
+    background: var(--primary);
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+#account_background .save-button:hover{
+    background: var(--primary-dark2);
+    color: var(--secondary-bright);
+}
+
+#account_background .delete-account{
+    cursor: pointer;
+    height: 30px;
+    width: 170px;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: var(--secondary);
+    background-color:  var(--primary-light);
     outline: none;
-    margin-right: 60px;
-    background-color: var(--secondary);
-    color: var(--primary-dark2);
+    margin-top: 30px;
+    border: solid 1px;
+    transition: all 0.2s ease-in-out;
+}
+
+#account_background .delete-account:hover{
+    color: #B43333;
+}
+
+/*********theme menu************/
+
+.theme-menu{
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: solid 1px var(--main-white);
+    outline: none;
+    color: var(--main-white);
     width: 50px;
     height: 50px;
-    border-radius: 50px;
+    border-radius: 2px;
     font-size: 18px;
     letter-spacing: 1px;
     text-align: center;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
 }
 
 .theme-menu:hover{
-    box-shadow: 0 5px 10px rgba(0,0,0,29.8);
+    border-color: var(--secondary);
+    color: var(--secondary);
+    box-shadow: 0 1px 10px rgba(0,0,0,29.8);
 }
 
-.theme-menu.expanded{
+.theme-menu.expand-horizontal{
     width: 200px;
-    height: 300px;
+}
+
+.theme-menu.expanded{/*
+    height: 300px;*/
     background-color: var(--primary-dark2);
     color: var(--secondary);
     font-size: 15px;

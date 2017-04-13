@@ -92,13 +92,72 @@
     border-radius: 2px;
     font-size: 140px;
     text-align: center;
+    overflow: hidden;
     color: var(--primary-dark2);
+    transition: all 0.3s ease-in-out;
+}
+
+.element .shadow-wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: var(--primary);
     transition: all 0.1s ease-in-out;
+}
+
+.element:hover .shadow-wrapper{
+    opacity: 0.6;
+}
+
+.element-title{
+    display: block;
+    overflow: hidden;
+    width: auto;
+    height: 5px;
+    padding: 0 10px;
+    margin: auto;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--secondary);
+    background-color: var(--secondary);
+}
+
+.element:hover .element-title{
+    font-size: 20px;
+    color: var(--primary-dark2);
+    transition: all 0.3s ease-in-out;
+    height: auto;
+}
+
+.element .board-view{
+    border: solid 10px #CBCBCB;
+    border-radius: 2px;
+    width: 100%;
+    z-index: 0;
+    vertical-align: middle;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+.element .element-edit{
+    cursor: pointer;
+    position: absolute;
+    margin: 10px;
+    font-size: 25px;
+    color: var(--secondary);
+    right: 0;
+    bottom: 0;
+}
+
+.element .glyphicon{
+    cursor: pointer;
 }
 
 a .element:hover{
     box-shadow: 0 5px 10px rgba(0,0,0,0.8);
-    -webkit-transform: scale(1.1);
 }
 
 .element .glyphicon-plus-sign{
@@ -108,6 +167,11 @@ a .element:hover{
 a{
     color: inherit;
     text-decoration: none !important;
+}
+
+.element.board-wrapper{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 /**loader***/
@@ -354,28 +418,7 @@ a{
     width: 960px;
     text-align: left;
 }
-.element-title{
-    font-size: 20px;
-    margin: 5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--primary-dark2);
-}
 
 .boards-wrapper .container .element{
     box-shadow: 0 2px 5px rgba(0,0,0,0.8);
-}
-
-.element .element-edit{
-    cursor: pointer;
-    position: absolute;
-    margin: 10px;
-    font-size: 25px;
-    color: var(--secondary);
-    right: 0;
-    bottom: 0;
-}
-
-.element .glyphicon{
-    cursor: pointer;
 }

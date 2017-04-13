@@ -1,18 +1,28 @@
 /**
  * Created by Akshat on 3/10/2017.
  */
+/*$(".name").click(function () {
+    $(".theme-menu").addClass("expand-horizontal");
+}, 500);*/
+
 $(".name").click(function () {
-    $(".theme-menu").addClass("expanded");
-    $("#theme-list").addClass("visible");
-    $(".close-menu").addClass("visible");
-    $(".name").removeClass("move-down").addClass("move-up");
+    $(".theme-menu").animate({width: "200px"}, 300).queue(function (next) {
+        $(this).animate({height: "300px"}, 600);
+        $("#theme-list").addClass("visible");
+        $(".close-menu").addClass("visible");
+        $(".name").removeClass("move-down").addClass("move-up");
+        next();
+    });
 });
 
 $(".close-menu").click(function () {
-    $(".theme-menu").removeClass("expanded");
-    $("#theme-list").removeClass("visible");
-    $(".close-menu").removeClass("visible");
-    $(".name").removeClass("move-up").addClass("move-down");
+    $(".theme-menu").animate({height: "50px"}, 100).queue(function (next) {
+        $("#theme-list").removeClass("visible");
+        $(this).animate({width: "50px"});
+        $(".close-menu").removeClass("visible");
+        $(".name").removeClass("move-up").addClass("move-down");
+        next();
+    });
 });
 
 //listener for each theme button

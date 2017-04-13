@@ -57,15 +57,15 @@ body{
 
 :root.gray{
     --primary: #2E2E2E;
-    --primary-light: #545454;
+    --primary-light: #B3B3B3;
     --primary-dark1: #262626;
     --primary-dark2: #1E1E1E;
 
     --secondary: #66666E;
     --secondary-bright: #9999A1;
 
-    --main-white: #F4F4F6;
-    --gray-white: #D2D2D4;
+    --main-white: #D2D2D4;
+    --gray-white: #f4f4f6;
 }
 
 #pinpin{
@@ -97,11 +97,13 @@ body{
 
 #nav-wrapper{
     width: 870px;
+    height: 60px;
     text-align: center;
     margin: auto;
 }
 
 .nav{
+    z-index: 9999;
     opacity: 1;
     font-weight: 500;
 

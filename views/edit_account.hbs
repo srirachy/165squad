@@ -7,36 +7,50 @@
     <script src="/javascripts/themes.js"></script>
 </head>
 <body id = "account_background">
+<div class = "theme-menu">
+    <div class = "name"><a href="#"><span class="glyphicon glyphicon-adjust"></span></a></div>
+    <div class="close-menu"><a href="#">X</a></div>
+    <div id = "theme-list">
+        <div class = "item"><span class="default"><a href="#">Default</a></span></div>
+        <div class = "item"><span class="monokai"><a href="#">Cherry Ossom</a></span></div>
+        <div class = "item"><span class="blue"><a href="#">Blue My Mind</a></span></div>
+        <div class = "item"><span class="teal"><a href="#">Teal I Die</a></span></div>
+        <div class = "item"><span class="gray"><a href="#">Grayvy</a></span></div>
+    </div>
+</div>
     <div class = "container">
-        <div class = "theme-menu">
-            <div class = "name"><a href="#"><span class="glyphicon glyphicon-adjust"></span></a></div>
-            <div class="close-menu"><a href="#">X</a></div>
-            <div id = "theme-list">
-                <div class = "item"><span class="default"><a href="#">Default</a></span></div>
-                <div class = "item"><span class="monokai"><a href="#">Cherry Ossom</a></span></div>
-                <div class = "item"><span class="blue"><a href="#">Blue My Mind</a></span></div>
-                <div class = "item"><span class="teal"><a href="#">Teal I Die</a></span></div>
-                <div class = "item"><span class="gray"><a href="#">Grayvy</a></span></div>
+        <div class="title">Edit Account Information</div>
+        <div class="profile-photo">
+            <div class="shadow-wrapper"></div>
+            <div class="change-photo"><span class="glyphicon glyphicon-camera"></span></div>
+            <img class="photo-resize" src="http://i.imgur.com/Fx6BGlt.jpg">
+        </div>
+        <div class="form">
+            <div class="field-sub">
+                <label class = "label">Email</label>
+                <input class="text-field" type="text" placeholder="name@example.com">
+            </div>
+            <div class="field-sub">
+                <label class = "label">First Name</label>
+                <input class="text-field" type="text" >
+            </div>
+            <div class="field-sub">
+                <label class = "label">Last Name</label>
+                <input class="text-field" type="text" >
+            </div>
+            <div class="field-sub">
+                <label class = "label">Password</label>
+                <input class="text-field" type="text" >
+            </div>
+
+            <div class="field-sub">
+                <label class = "label">Confirm Password</label>
+                <input class="text-field" type="text">
             </div>
         </div>
-    </div>
-    <div class="bio">
-        <div id="name">Account Settings</div>
-    </div>
-    <div style="color: #CBCBCB; margin-left: 100px;">
-        <div><p1 style="font-size: 18pt;">Things to implement</p3></div>
-        <ol>
-            <li>Edit Name</li>
-            <li>Change Email
-            <li>Change Password</li>
-            <li>Change Profile Picture</li>
-        </ol>
-    </div>
-    <div>
-        <br>
-        <br>
+        <button type="submit" class = "save-button">SAVE</button>
         <form method="post" action="/api/users/delete">
-            <button style="margin-left: 50px; font-size: 18pt; border-radius: 5px;" type="submit" >Delete Account</button>
+            <button class="delete-account" type="submit" >Delete Account</button>
         </form>
     </div>
 

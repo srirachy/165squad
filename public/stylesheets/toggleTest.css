@@ -48,8 +48,8 @@
 ============================================================ */
 input.cmn-toggle-round + label {
   padding: 2px;
-  width: 120px;
-  height: 60px;
+  width: 60px;
+  height: 30px;
   background-color: #dddddd;
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;
@@ -79,7 +79,7 @@ input.cmn-toggle-round + label:before {
   transition: background 0.4s;
 }
 input.cmn-toggle-round + label:after {
-  width: 58px;
+  width: 28px;
   background-color: #fff;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
@@ -99,7 +99,7 @@ input.cmn-toggle-round:checked + label:before {
   background-color: #CC0000;
 }
 input.cmn-toggle-round:checked + label:after {
-  margin-left: 60px;
+  margin-left: 30px;
 }
 
 /* ============================================================

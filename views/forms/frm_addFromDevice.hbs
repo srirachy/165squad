@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/stylesheets/boardform.css">
+    <script>
+		$(document).ready(function() {
+		    $("img").each(function() {
+		        // Calculate aspect ratio and store it in HTML data- attribute
+		        var aspectRatio = $(this).width()/$(this).height();
+		        $(this).data("aspect-ratio", aspectRatio);
+
+		        // Conditional statement
+		        if(aspectRatio > 1) {
+		            // Image is landscape
+		            $(this).css({
+		                width: "100%",
+		                height: "auto"
+		            });
+		        } else if (aspectRatio < 1) {
+		            // Image is portrait
+		            $(this).css({
+		                maxWidth: "100%"
+		            });
+		        } else {
+		            // Image is square
+		            $(this).css({
+		                maxWidth: "100%",
+		                height: "auto"
+		            });            
+		        }
+		    });
+		});
+    </script>
+</head>
+
+<body>
+
+<div ng-cloak>
+	<div class="modal-header">
+    	<h3 class="modal-title text-center text-danger">Upload a Pin</h3>
+	</div>
+	<div class = "container-fluid" >
+		<div class="row">
+	   		<div class="col-md-12" style="height: 300px;">
+	   			<form>
+	   				<input type="file" name="pinFile" onchange="angular.element(this).scope().photoChosen(this.files)">
+	   				<div class="col-md-5">
+		   				<div style="width: 150px; height: 150px;">
+		   					<img style="width:100%; height: auto;" ng-src="<% thumbnail.dataUrl %>" ng-show="!loading && thumbnail.dataUrl"/>
+		   					<img style="width:100%; height: auto;" ng-src="/images/page-loader.gif" ng-show="loading && !thumbnail.dataUrl"/>
+		   					<textarea cols="30" id="tags" name="description" rows="3" placeholder="Enter tags like this: #dog#puppy#canine" ng-show="thumbnail.dataUrl" ng-model="tags"></textarea>
+
+		   				</div>
+		   				<div>
+		   							   				</div>
+	   				</div>
+	   				<div class="col-md-7" style="max-height: 250px; min-height: 0px; overflow-y: auto;" ng-show="thumbnail.dataUrl">
+	   					<p2>My Boards</p2>
+	   					<div class="row" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-repeat="board in boards">
+	   						<div class="col-md-7">
+		   						<img style="width:50px; height: 50px;" src="/images/EmptyBoard.png">
+		   						<span><%board.Name%></span>
+	   						</div>
+	   						<div class="col-md-2">
+	   							<button class="btn btn-danger btn-md" ng-show="options" ng-click="savePin(board)">Save</button>
+	   						</div>
+	   					</div>
+	   				</div>
+	   			</form>
+	    	</div>
+	    </div>
+	</div>
+</div>
+</body>
+</html>

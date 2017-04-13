@@ -422,3 +422,29 @@ a{
 .boards-wrapper .container .element{
     box-shadow: 0 2px 5px rgba(0,0,0,0.8);
 }
+
+.element .element-edit{
+    cursor: pointer;
+    position: absolute;
+    margin: 10px;
+    font-size: 25px;
+    color: var(--secondary);
+    right: 0;
+    bottom: 0;
+}
+
+.element .glyphicon{
+    cursor: pointer;
+}
+.modal-dialog,
+.modal-content {
+    /* 80% of window height */
+    /*height: 80%;*/
+    margin-top: 10%;
+}
+
+.modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 320px);
+    overflow-y: scroll;
+}

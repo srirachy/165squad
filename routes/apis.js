@@ -5,10 +5,13 @@ var imageHelper = require('../helpers/imageHelper');
 var path = require('path');
 var fs = require('fs');
 var request = require('request');
+var multer = require('multer');
+var upload = multer({dest: __dirname + '/../public/uploads/Pins'});
 
 var User = require('../models/user');
 
 var profilePicturesDir = path.join(__dirname, '../public/uploads/ProfilePictures/');
+var pinsDir = path.join(__dirname, '../public/uploads/Pins/');
 
 //Helper function to get boards
 function getBoards(userKey, done){
@@ -121,6 +124,38 @@ router.post('/users/delete', function(req, res) {
 	});
 });
 
+//Upload Pin
+router.post('/uploadPin', upload.any(), function(req, res){
+	var pinKey = '';
+	var params = {into: 'Pin', values: [{URL: 'localhost:3000/api/content/' + req.files[0].filename}]};
+	async.series([function(callback){
+		User.insert(params,function(err, result){
+			if(err) throw err;
+			pinKey = result;
+			callback(null, result);
+		});
+	},function(callback){
+		params = {into: 'BoardPin', values: [{PinKey: pinKey, BoardKey: req.body.boardKey, Tags: req.body.tags}]};
+		User.insert(params,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	}
+	], function(err, results){
+		
+		res.json(results[1]);
+	});
+	
+});
+
+router.get('/content/:file', function(req, res){
+  var file = req.params.file;
+  var data = fs.readFileSync(pinsDir + file);
+  // var img = new Buffer(data).toString('base64');
+
+  // res.writeHead(200, {'Content-Type': 'image/png' });
+  res.end(data);
+});
 
 
 module.exports = router;

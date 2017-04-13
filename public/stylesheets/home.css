@@ -332,7 +332,7 @@ a{
     padding: 15px;
     position: fixed;
     text-align: center;
-    z-index: 99;
+    z-index: 999;
     background-color: var(--secondary);
     transition: all 1s;
 }

@@ -2,35 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="/stylesheets/boardform.css">
-    <script>
-		$(document).ready(function() {
-		    $("img").each(function() {
-		        // Calculate aspect ratio and store it in HTML data- attribute
-		        var aspectRatio = $(this).width()/$(this).height();
-		        $(this).data("aspect-ratio", aspectRatio);
 
-		        // Conditional statement
-		        if(aspectRatio > 1) {
-		            // Image is landscape
-		            $(this).css({
-		                width: "100%",
-		                height: "auto"
-		            });
-		        } else if (aspectRatio < 1) {
-		            // Image is portrait
-		            $(this).css({
-		                maxWidth: "100%"
-		            });
-		        } else {
-		            // Image is square
-		            $(this).css({
-		                maxWidth: "100%",
-		                height: "auto"
-		            });            
-		        }
-		    });
-		});
-    </script>
 </head>
 
 <body>
@@ -43,7 +15,7 @@
 		<div class="row">
 	   		<div class="col-md-12" style="height: 300px;">
 	   			<form>
-	   				<input type="file" name="pinFile" onchange="angular.element(this).scope().photoChosen(this.files)">
+	   				<input type="file" name="pinFile" onchange="angular.element(this).scope().photoChosen(this.files)" accept="image/*,video/*,audio/*">
 	   				<div class="col-md-5">
 		   				<div style="width: 150px; height: 150px;">
 		   					<img style="width:100%; height: auto;" ng-src="<% thumbnail.dataUrl %>" ng-show="!loading && thumbnail.dataUrl"/>

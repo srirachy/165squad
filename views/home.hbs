@@ -97,10 +97,17 @@
     <!--Pins-->
     <div class="container">
         <div class="title">
-            <a href="#">PINS (#)</a>
+            <a href="#">PINS (<%pins.length%>)</a>
         </div>
         <div class="container-box">
             <a href="#" ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
+            <a href="#" ng-repeat="pin in pins|limitTo:3">
+                <div class="element" ng-mouseenter="options=true" ng-mouseleave="options=false">
+                    <div>
+                        <img style="width:100%; height: auto;" ng-src="<% pin.URL %>"/>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 

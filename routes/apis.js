@@ -6,12 +6,38 @@ var path = require('path');
 var fs = require('fs');
 var request = require('request');
 var multer = require('multer');
-var upload = multer({dest: __dirname + '/../public/uploads/Pins'});
+var aws = require('aws-sdk');
+var multerS3 = require('multer-s3');
+
+
+// Amazon S3 Stuff
+aws.config.loadFromPath('./config.json');
+aws.config.update({
+	signatureVersion: 'v4'
+});
+var s3 = new aws.S3({});
+var upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: 'pinpin-uploads',
+    acl: 'public-read',
+    metadata: function (req, file, cb) {
+      cb(null, {fieldName: file.fieldname});
+    },
+    key: function (req, file, cb) {
+      cb(null, Date.now().toString())
+    }
+  })
+})
+// END Amazon s3 stuff
+
+
 
 var User = require('../models/user');
 
 var profilePicturesDir = path.join(__dirname, '../public/uploads/ProfilePictures/');
 var pinsDir = path.join(__dirname, '../public/uploads/Pins/');
+
 
 //Helper function to get boards
 function getBoards(userKey, done){
@@ -126,8 +152,9 @@ router.post('/users/delete', function(req, res) {
 
 //Upload Pin
 router.post('/uploadPin', upload.any(), function(req, res){
+	var f = req.files[0];
 	var pinKey = '';
-	var params = {into: 'Pin', values: [{URL: 'localhost:3000/api/content/' + req.files[0].filename}]};
+	var params = {into: 'Pin', values: [{URL: f.location, FileKey: f.key, OriginalFileName: f.originalname, FileType: f.mimetype}]};
 	async.series([function(callback){
 		User.insert(params,function(err, result){
 			if(err) throw err;
@@ -148,6 +175,7 @@ router.post('/uploadPin', upload.any(), function(req, res){
 	
 });
 
+
 router.get('/content/:file', function(req, res){
   var file = req.params.file;
   var data = fs.readFileSync(pinsDir + file);
@@ -157,5 +185,18 @@ router.get('/content/:file', function(req, res){
   res.end(data);
 });
 
+//Get user pins
+router.get('/userPins', function(req, res) {
+  	var promises = [new Promise(function(resolve, reject){
+		User.select({from: 'vUserPins', where:{UserKey: req.user.UserKey}},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0]);
+	});
+});
 
 module.exports = router;

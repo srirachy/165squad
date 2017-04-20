@@ -7,7 +7,17 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
     .error(function (data, status){
       console.log(data);
     });
-    // Open a modal window to update/create/delete a board
+
+
+    $http.get('/api/userPins')
+    .success(function (result){
+      $scope.pins = result;
+    })
+    .error(function (data, status){
+      console.log(data);
+    });
+
+  // Open a modal window to update/create/delete a board
   $scope.openBoardFormModal = function (size, selectedItem, index) {
     $scope.index = index;
     var modalInstance = $uibModal.open({

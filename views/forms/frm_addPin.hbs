@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/stylesheets/boardform.css">
+    <link rel="stylesheet" href="/stylesheets/pinform.css">
 </head>
 
 <body>
 
-<div ng-cloak>
+<div ng-cloak class="pin-form">
 	<div class="modal-header">
-    	<h3 class="modal-title text-center text-danger">Save From</h3>
+    	New Pin<br/>
 	</div>
 	<div class = "container-fluid">
+        <span id="sub-heading">Save from</span>
 		<div class="row">
 	   		<div class="col-md-6">
-	   			<button style="height: 100px; width: 100%;" ng-click="addFromWeb()">
- 					The Web		
-	   			</button>
+	   			<button class="pin-form-button" ng-click="addFromWeb()">
+ 					WEB
+                </button>
 	    	</div>
 	    	<div class="col-md-6">
-	    		<button style="height: 100px; width: 100%;" ng-click="addFromDevice()">
-	    			Your Device
-	    		</button>
+	    		<button class="pin-form-button" ng-click="addFromDevice()">
+                    DEVICE
+                </button>
 	    	</div>
 	    </div>
 	</div>

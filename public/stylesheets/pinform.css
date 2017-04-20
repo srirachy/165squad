@@ -1,0 +1,181 @@
+.pin-form{
+    background-color: var(--primary-dark2);
+    outline: none;
+    border: none;
+    height: auto;
+    min-height: 230px;
+    padding: 15px;
+}
+
+#pin-from-device .pin-form{
+    min-height: 250px;
+}
+
+.pin-form .modal-header{
+    color: var(--secondary);
+    font-size: 24px;
+    letter-spacing: 5px;
+    text-align: center;
+    border-bottom: 1px solid var(--secondary);
+    margin-bottom: 15px;
+}
+
+#sub-heading{
+    color: var(--secondary);
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.pin-form .pin-form-button{
+    color: var(--gray-white);
+    width: 100%;
+    height: 100px;
+    outline: 0;
+    border: solid 4px;
+    opacity: 0.8;
+    border-radius: 3px;
+    background-color: rgba(0,0,0,0);
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+.pin-form .pin-form-button:hover{
+    color: var(--secondary);
+    opacity: 1;
+}
+
+#pin-from-device div.file-field{
+    width: 100%;
+    height: 230px;
+    background-color: var(--primary);
+    opacity: 0.8;
+    color: var(--secondary);
+    text-align: center;
+    margin: auto;
+    border: none;
+    outline: none;
+}
+
+.file-field .glyphicon{
+    position: absolute;
+    top: 50px;
+    left: 43%;
+    vertical-align: middle;
+    color: var(--primary-light);
+    font-size: 90px;
+    z-index: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.file-field:hover .glyphicon{
+    color: var(--secondary);
+}
+
+.file-field .hidden-field input{
+    width: 100%;
+    height: 230px;
+    position: relative;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    overflow: hidden;
+    outline: none;
+}
+
+.pin-form .form-loader{
+    height: 230px;
+    width: 100%;
+    padding-top: 80px;
+    text-align: center;
+}
+
+.pin-form .pin-form-image{
+    margin-bottom: 15px;
+    box-shadow: 0 6px 15px 0 #000;
+}
+
+.pin-form .pin-form-textarea{
+    width: 100%;
+    height: 80px;
+    line-height: 22px;
+    resize: none;
+    overflow: auto;
+    background-color: inherit;
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-left: solid 1px var(--gray-white);
+    color: var(--main-white);
+}
+
+.pin-form .pin-form-textarea:focus{
+    -webkit-transition: ease-in 0.2s;
+    -moz-transition: ease-in 0.2s;
+    -ms-transition: ease-in 0.2s;
+    -o-transition: ease-in 0.2s;
+    transition: ease-in 0.2s;
+    border-color: var(--secondary-bright);
+    color: var(--secondary);
+}
+
+.pin-form .form-boards-list{
+    height: auto;
+    overflow: auto;
+}
+
+.form-boards-list #my-boards{
+    cursor: default;
+    display: block;
+    margin:  auto;
+    text-align: center;
+    font-size: 14px;
+    color: var(--secondary);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.form-boards-list .form-board-name{
+    cursor: default;
+    font-size: 14px;
+    color: var(--gray-white);
+    margin-left: 10px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.form-boards-list .col-md-12{
+    margin-bottom: 5px;
+}
+
+.form-boards-list .col-md-12:hover{
+    background-color: var(--primary-light);
+}
+
+.form-boards-list .save-in-board{
+    margin-top: 5px;
+    float: right;
+    background-color: var(--primary-light);
+    color: var(--gray-white);
+    padding: 10px;
+    border: solid 1px;
+    font-size: 12px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    letter-spacing: 2px;
+}
+.form-boards-list .save-in-board:hover{
+    color: var(--secondary);
+}
+
+.form-boards-list .glyphicon{
+    color: var(--gray-white);
+    margin-top: 5px;
+    font-size: 25px;
+}

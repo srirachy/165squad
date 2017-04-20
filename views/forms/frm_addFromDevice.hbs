@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/stylesheets/boardform.css">
+    <link rel="stylesheet" href="/stylesheets/pinform.css">
+    <link rel="stylesheet" href="/stylesheets/loader.css">
     <script>
 		$(document).ready(function() {
 		    $("img").each(function() {
@@ -35,34 +36,31 @@
 
 <body>
 
-<div ng-cloak>
+<span id="pin-from-device">
+<div ng-cloak class = "pin-form">
 	<div class="modal-header">
-    	<h3 class="modal-title text-center text-danger">Upload a Pin</h3>
+        Upload a Pin
 	</div>
 	<div class = "container-fluid" >
 		<div class="row">
-	   		<div class="col-md-12" style="height: 300px;">
+	   		<div class="col-md-12">
 	   			<form>
-	   				<input type="file" name="pinFile" onchange="angular.element(this).scope().photoChosen(this.files)">
-	   				<div class="col-md-5">
-		   				<div style="width: 150px; height: 150px;">
-		   					<img style="width:100%; height: auto;" ng-src="<% thumbnail.dataUrl %>" ng-show="!loading && thumbnail.dataUrl"/>
-		   					<img style="width:100%; height: auto;" ng-src="/images/page-loader.gif" ng-show="loading && !thumbnail.dataUrl"/>
-		   					<textarea cols="30" id="tags" name="description" rows="3" placeholder="Enter tags like this: #dog#puppy#canine" ng-show="thumbnail.dataUrl" ng-model="tags"></textarea>
-
-		   				</div>
-		   				<div>
-		   							   				</div>
+                    <div class = "file-field" ng-show="!thumbnail.dataUrl && !loading">
+                        <span class="glyphicon glyphicon-upload"></span>
+                        <span class="hidden-field"><input type="file" name="pinFile" onchange="angular.element(this).scope().photoChosen(this.files)"></span>
+                    </div>
+                    <div class="form-loader" ng-show="loading && !thumbnail.dataUrl"><span class="loader"><span class="loader-inner"></span></span></div>
+                    <div class="col-md-5">
+                        <img class="pin-form-image" style="width:100%; height: auto;" ng-src="<% thumbnail.dataUrl %>" ng-show="!loading && thumbnail.dataUrl"/>
+                        <textarea class="pin-form-textarea" cols="30" id="tags" name="description" rows="3" placeholder="Enter tags like this: #dog#puppy#canine" ng-show="thumbnail.dataUrl" ng-model="tags"></textarea>
 	   				</div>
-	   				<div class="col-md-7" style="max-height: 250px; min-height: 0px; overflow-y: auto;" ng-show="thumbnail.dataUrl">
-	   					<p2>My Boards</p2>
+	   				<div class="col-md-7 form-boards-list" ng-show="thumbnail.dataUrl">
+	   					<span id="my-boards">My Boards</span>
 	   					<div class="row" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-repeat="board in boards">
-	   						<div class="col-md-7">
-		   						<img style="width:50px; height: 50px;" src="/images/EmptyBoard.png">
-		   						<span><%board.Name%></span>
-	   						</div>
-	   						<div class="col-md-2">
-	   							<button class="btn btn-danger btn-md" ng-show="options" ng-click="savePin(board)">Save</button>
+	   						<div class="col-md-12">
+                                <span class="glyphicon glyphicon-book"></span>
+		   						<span class="form-board-name"><%board.Name%></span>
+	   							<button class="save-in-board" ng-show="options" ng-click="savePin(board)">Save</button>
 	   						</div>
 	   					</div>
 	   				</div>
@@ -71,5 +69,6 @@
 	    </div>
 	</div>
 </div>
+</span>
 </body>
 </html>

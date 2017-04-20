@@ -41,7 +41,7 @@ var pinsDir = path.join(__dirname, '../public/uploads/Pins/');
 
 //Helper function to get boards
 function getBoards(userKey, done){
-	User.select({from: 'Board', where:{UserKey: userKey}},function(err, result){
+	User.select({from: 'vUserBoards', where:{UserKey: userKey}},function(err, result){
 		if(err) throw err;
 		done(null, result);
 	});

@@ -1,5 +1,5 @@
 
-angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '$http', function($scope, $uibModal, $log, $http){
+angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '$http', '$window', function($scope, $uibModal, $log, $http, $window){
    $http.get('/api/boards')
     .success(function (result){
       $scope.boards = result;
@@ -192,7 +192,7 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
                 headers: {'Content-Type': undefined},
             })
             .success(function (result){
-              //$scope.boards = result;
+              $window.location.reload();
             })
             .error(function (data, status){
               console.log(data);

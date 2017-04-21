@@ -86,7 +86,7 @@
                         <%board.Name%>
                     </div>
                     <div class="shadow-wrapper"></div>
-                    <img class="board-view" src="http://i.imgur.com/Fx6BGlt.jpg">
+                    <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
                     <div>
                         <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
                     </div>

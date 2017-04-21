@@ -93,6 +93,7 @@
     text-align: center;
     overflow: hidden;
     color: var(--primary-dark2);
+    box-shadow: 0 2px 5px 0 #000;
     transition: all 0.3s ease-in-out;
 }
 
@@ -234,6 +235,46 @@ a{
     to{
         margin-top: 0;
     }
+}
+
+/****Pins-min list****/
+
+#pins-block .element-pin{
+    cursor: default;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 220px;
+    height: 220px;
+    margin: 5px 7px;
+    font-size: 140px;
+    text-align: center;
+    color: var(--primary-dark2);
+}
+
+.element-pin img{
+    vertical-align: middle;
+    border: solid 1px var(--primary-dark2);
+    box-shadow: 0 2px 5px 0 #000;
+    max-width: 220px;
+    max-height: 220px;
+    transition: all 0.3s ease-in-out;
+}
+
+.element-pin img:hover{
+    box-shadow: 0 6px 15px rgb(0,0,0);
+}
+
+.element-pin img.wide{
+    width: 100%;
+}
+
+.element-pin img.portrait{
+    height: 100%;
+}
+
+.element-pin img.square{
+    width: 100%;
 }
 
 /**showing all boards***/

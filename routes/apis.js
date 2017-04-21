@@ -28,7 +28,7 @@ var upload = multer({
       cb(null, Date.now().toString())
     }
   })
-})
+});
 // END Amazon s3 stuff
 
 

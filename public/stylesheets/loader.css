@@ -11,8 +11,8 @@
 .loader-inner {
     vertical-align: top;
     display: inline-block;
+    background-color: var(--secondary);
     width: 100%;
-    background-color: #fff;
     animation: loader-inner 2s infinite ease-in;
 }
 

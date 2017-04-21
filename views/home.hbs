@@ -102,13 +102,26 @@
         </div>
         <div class="container-box">
             <a href="#" ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
-            <a href="#" ng-repeat="pin in pins|limitTo:3">
-                <div class="element" ng-mouseenter="options=true" ng-mouseleave="options=false">
-                    <div>
-                        <img style="width:100%; height: auto;" ng-src="<% pin.URL %>"/>
+            <span id="pins-block">
+                <a href="#" ng-repeat="pin in pins|limitTo:3">
+                    <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false">
+                        <div>
+                            <img ng-src="<% pin.URL %>"/>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+                    <script>
+                        $('img').each(function(_, img) {
+                            var $this = $(this);
+
+                            if( $this.height() / $this.width() < 0.6666666666666667 ) {
+                                $this.css({
+                                    height: '220px',
+                                    maxWidth: 'none'
+                                });
+                        });
+                    </script>
+            </span>
         </div>
     </div>
 

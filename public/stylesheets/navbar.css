@@ -3,6 +3,10 @@ body{
     font-family: 'Quicksand', sans-serif;
 }
 
+:focus{
+    outline: none;
+}
+
 :root{
     --primary: #231F20;
     --primary-light: #373334;
@@ -168,7 +172,7 @@ body{
     height: 20px;
     width: 300px;
     border: solid 1px var(--gray-white);
-    border-radius: 25px;
+    border-radius: 1px;
     text-align: right;
 }
 .nav .nav_elem.search:hover{

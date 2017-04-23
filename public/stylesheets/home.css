@@ -107,39 +107,57 @@
 }
 
 .element:hover .shadow-wrapper{
-    opacity: 0.6;
+    opacity: 0.2;
 }
 
 .element-title{
+    border-top: solid 10px rgba(0,0,0,0.4);
     display: block;
+    position: absolute;
     overflow: hidden;
-    width: auto;
-    height: 5px;
-    padding: 0 10px;
+    width: 100%;
+    text-align: center;
     margin: auto;
-    font-size: 11px;
-    font-weight: 700;
     text-transform: uppercase;
-    color: var(--secondary);
-    background-color: var(--secondary);
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+    font-size: 20px;
+    color: var(--gray-white);
+}
+
+.element-title #text{
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
 }
 
 .element:hover .element-title{
-    font-size: 20px;
-    color: var(--primary-dark2);
-    transition: all 0.3s ease-in-out;
     height: auto;
+    border-top: 1px;
+}
+
+.element:hover #text{
+    opacity: 1;
 }
 
 .element .board-view{
-    border: solid 10px #CBCBCB;
-    border-radius: 2px;
-    width: 100%;
+    width: 200%;
     z-index: 0;
     vertical-align: middle;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.element:hover .board-view{
+    width: 180%;
+    filter: blur(1px);
 }
 
 .element .element-edit{
@@ -241,7 +259,7 @@ a{
 
 #pins-block .element-pin{
     cursor: default;
-    display: inline-block;
+    display: inline-block !important;
     position: relative;
     box-sizing: border-box;
     width: 220px;
@@ -253,16 +271,16 @@ a{
 }
 
 .element-pin img{
+    cursor: pointer;
     vertical-align: middle;
-    border: solid 1px var(--primary-dark2);
-    box-shadow: 0 2px 5px 0 #000;
+    box-shadow: 0 6px 15px rgb(0,0,0);
     max-width: 220px;
     max-height: 220px;
     transition: all 0.3s ease-in-out;
 }
 
 .element-pin img:hover{
-    box-shadow: 0 6px 15px rgb(0,0,0);
+    box-shadow: 0 2px 5px 0 #000;
 }
 
 .element-pin img.wide{

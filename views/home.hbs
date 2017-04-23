@@ -26,7 +26,7 @@
 
     <!--showing all boards-->
     <div id = "show-boards">
-        <div id = "close-show">x</div>
+        <div id = "close-show"><span class="glyphicon glyphicon-remove-circle"></span></div>
         <div class="title-secondary">
             BOARDS
             <div id="underline"></div>
@@ -79,19 +79,17 @@
             <div id="board-listener">VIEW ALL</div>
         </div>
         <div class="container-box">
-            <a href="#"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></a>
-            <a href="#" ng-repeat="board in boards|limitTo:3">
+            <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
+            <div style="display: inline-block" ng-repeat="board in boards|limitTo:3">
                 <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false">
                     <div class="element-title">
-                        <%board.Name%>
+                        <span id="text"><%board.Name%></span>
                     </div>
-                    <div class="shadow-wrapper"></div>
                     <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
-                    <div>
-                        <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
-                    </div>
+                    <div class="shadow-wrapper"></div>
+                    <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
 
@@ -101,26 +99,24 @@
             <a href="#">PINS (<%pins.length%>)</a>
         </div>
         <div class="container-box">
-            <a href="#" ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
+            <a ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
             <span id="pins-block">
-                <a href="#" ng-repeat="pin in pins|limitTo:3">
+                <span ng-repeat="pin in pins|limitTo:3">
                     <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false">
-                        <div>
-                            <img ng-src="<% pin.URL %>"/>
-                        </div>
+                        <img ng-src="<% pin.URL %>"/>
                     </div>
-                </a>
-                    <script>
-                        $('img').each(function(_, img) {
-                            var $this = $(this);
+                </span>
+                <script>
+                    $('.element-pin img').each(function(_, img) {
+                        var $this = $(this);
 
-                            if( $this.height() / $this.width() < 0.6666666666666667 ) {
-                                $this.css({
-                                    height: '220px',
-                                    maxWidth: 'none'
-                                });
-                        });
-                    </script>
+                        if( $this.height() / $this.width() < 0.6666666666666667 ) {
+                            $this.css({
+                                height: '220px',
+                                maxWidth: 'none'
+                            });
+                    });
+                </script>
             </span>
         </div>
     </div>

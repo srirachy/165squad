@@ -63,6 +63,14 @@ exports.getCategories = function(params, done){
     })
 }
 
+exports.getFeed = function(params, done){
+  db.get().query('SELECT * FROM ' + params.from, function (err, rows) {
+      if (err) return done(err)
+      done(null, rows)
+    })
+}
+
+
 exports.comparePassword = function(candidatePassword, hash, callback){
 	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
     	if(err) throw err;

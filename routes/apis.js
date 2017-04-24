@@ -199,4 +199,18 @@ router.get('/userPins', function(req, res) {
 	});
 });
 
+//Get user feed
+router.get('/feed', function(req, res) {
+  	var promises = [new Promise(function(resolve, reject){
+		User.getFeed({from: 'vFeed'},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0]);
+	});
+});
+
 module.exports = router;

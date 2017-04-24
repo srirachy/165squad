@@ -144,7 +144,8 @@ router.get('/home', function(req, res)
 
 //feed
 router.get('/feed', function(req, res) {
-    res.render('feed', {feed: true, home: false, edit_account: false});
+
+	res.render('feed', {feed: true, home: false, edit_account: false});
 
 });
 

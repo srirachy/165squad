@@ -4,80 +4,27 @@
     <meta charset="UTF-8">
     <title>PinPin</title>
     <link rel="stylesheet" href="/stylesheets/feed.css">
+    <!-- <script src="/javascripts/Controllers/ctrlFeed.js"></script> -->
 </head>
 <body id = "feed_background">
 <div class="container">
     <div class="masonry">
 
-        <div class = "item">
-            <div class="item-options">
-                <div class="save-pin"><span class="glyphicon glyphicon-pushpin"></span></div>
-                <div class="pin-pin"><span class="glyphicon glyphicon-pushpin"></span><span class="glyphicon glyphicon-pushpin"></span></div>
-                <div class="view-board"><span class="glyphicon glyphicon-book"></span></div>
-            </div>
-            <img src="https://www.e-architect.co.uk/images/jpgs/dubai/the_index_dubai_c150611_ny.jpg">
-            <div class="pin-uploader">
-                <span class="uploader-photo"><img style="width: 200%"></span>
-                <span class="uploader-name">Pin Uploader</span>
-                <span class="follow-uploader">Follow</span>
-            </div>
-        </div>
+    
 
-        <div class = "item">
+<!--         <div class = "item" ng-repeat="pin in pins">
             <div class="item-options">
                 <div class="save-pin"><span class="glyphicon glyphicon-pushpin"></span></div>
                 <div class="pin-pin"><span class="glyphicon glyphicon-pushpin"></span><span class="glyphicon glyphicon-pushpin"></span></div>
                 <div class="view-board"><span class="glyphicon glyphicon-book"></span></div>
             </div>
-            <img src="https://www.w3schools.com/css/img_fjords.jpg">
+            <img src="<% pin.URL %>">
             <div class="pin-uploader">
                 <span class="uploader-photo"><img style="width: 200%"></span>
-                <span class="uploader-name">Pin Uploader</span>
+                <span class="uploader-name"><% pin.FirstName + ' ' + pin.LastName %></span>
                 <span class="follow-uploader">Follow</span>
             </div>
-        </div>
-
-        <div class = "item">
-            <div class="item-options">
-                <div class="save-pin"><span class="glyphicon glyphicon-pushpin"></span></div>
-                <div class="pin-pin"><span class="glyphicon glyphicon-pushpin"></span><span class="glyphicon glyphicon-pushpin"></span></div>
-                <div class="view-board"><span class="glyphicon glyphicon-book"></span></div>
-            </div>
-            <img src="https://www.w3schools.com/css/img_fjords.jpg">
-            <div class="pin-uploader">
-                <span class="uploader-photo"><img style="width: 200%"></span>
-                <span class="uploader-name">Pin Uploader</span>
-                <span class="follow-uploader">Follow</span>
-            </div>
-        </div>
-
-        <div class = "item">
-            <div class="item-options">
-                <div class="save-pin"><span class="glyphicon glyphicon-pushpin"></span></div>
-                <div class="pin-pin"><span class="glyphicon glyphicon-pushpin"></span><span class="glyphicon glyphicon-pushpin"></span></div>
-                <div class="view-board"><span class="glyphicon glyphicon-book"></span></div>
-            </div>
-            <img src="https://www.w3schools.com/w3css/img_forest.jpg">
-            <div class="pin-uploader">
-                <span class="uploader-photo"><img style="width: 200%"></span>
-                <span class="uploader-name">Pin Uploader</span>
-                <span class="follow-uploader">Follow</span>
-            </div>
-        </div>
-
-        <div class = "item">
-            <div class="item-options">
-                <div class="save-pin"><span class="glyphicon glyphicon-pushpin"></span></div>
-                <div class="pin-pin"><span class="glyphicon glyphicon-pushpin"></span><span class="glyphicon glyphicon-pushpin"></span></div>
-                <div class="view-board"><span class="glyphicon glyphicon-book"></span></div>
-            </div>
-            <img src="https://www.e-architect.co.uk/images/jpgs/dubai/the_index_dubai_c150611_ny.jpg">
-            <div class="pin-uploader">
-                <span class="uploader-photo"><img style="width: 200%"></span>
-                <span class="uploader-name">Pin Uploader</span>
-                <span class="follow-uploader">Follow</span>
-            </div>
-        </div>
+        </div> -->
 
     </div>
 </div>

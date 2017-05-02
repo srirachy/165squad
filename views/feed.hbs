@@ -12,7 +12,7 @@
 }
 </style>
 </head>
-<body id = "feed_background" ng-controller="ctrlFeed" ng-init=init()>
+<body id = "feed_background" ng-controller="ctrlFeed" ng-init="init()">
 <div class="container">
     <div class="masonry" ng-cloak>
         <div class = "item" ng-repeat="pin in pins" ng-show="initialized" ng-cloak>
@@ -21,9 +21,9 @@
                 <div class="pin-pin"><span class="glyphicon glyphicon-pushpin"></span><span class="glyphicon glyphicon-pushpin"></span></div>
                 <div class="view-board"><span class="glyphicon glyphicon-book"></span></div>
             </div>
-            <img src="<% pin.URL %>" ng-cloak>
+            <img ng-src="<% pin.URL %>" ng-cloak>
             <div class="pin-uploader">
-                <span class="uploader-photo"><img style="width: 200%" ng-cloak></span>
+                <span class="uploader-photo"><img style="width: 200%" ng-src="<%pin.ProfilePicture%>" ng-cloak></span>
                 <span class="uploader-name"><% pin.FirstName + ' ' + pin.LastName %></span>
                 <span class="follow-uploader">Follow</span>
             </div>

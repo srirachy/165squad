@@ -213,4 +213,18 @@ router.get('/feed', function(req, res) {
 	});
 });
 
+//Get user info
+router.get('/userInfo', function(req, res) {
+  	var promises = [new Promise(function(resolve, reject){
+		User.select({from: 'vUserInfo', where:{UserKey: req.user.UserKey}},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0][0]);
+	});
+});
+
 module.exports = router;

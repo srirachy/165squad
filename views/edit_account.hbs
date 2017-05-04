@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="/stylesheets/edit_account.css">
     <script src="/javascripts/themes.js"></script>
     <script src="/javascripts/Controllers/ctrlEditAccount.js"></script>
+    <script src="/javascripts/Services/ImageService.js"></script>
+    <script src="/javascripts/ng-file-upload-shim.min.js"></script>
+    <script src="/javascripts/ng-file-upload.min.js"></script>
+    <script src="/javascripts/ng-img-crop.js"></script>
+
 </head>
 <body id = "account_background" ng-controller="ctrlEditAccount" ng-init="init()">
 <div class = "theme-menu">
@@ -23,9 +28,16 @@
         <div class="title">Edit Account Information</div>
         <div class="profile-photo">
             <div class="shadow-wrapper"></div>
-            <div class="change-photo"><span class="glyphicon glyphicon-camera" ng-click="changePicture()"></span></div>
-            <img class="photo-resize" ng-src=" <% user.ProfilePicture || 'http://i.imgur.com/Fx6BGlt.jpg' %>">
+            <div class="change-photo">
+                <label for="file-input">
+                    <span class="glyphicon glyphicon-camera"></span>
+                </label>
+                <input id="file-input" type="file" style="display:none;" onchange="angular.element(this).scope().cropPicture(this.files)" accept="image/*" ng-model="user.ProfilePicture">
+            </div>
+            <img class="photo-resize" src="http://i.imgur.com/Fx6BGlt.jpg" ng-show="!user.ProfilePicture" ng-cloak>
+            <img class="photo-resize" ng-src=" <% user.ProfilePicture %>" ng-show="user.ProfilePicture" ng-cloak>
         </div>
+
         <div class="form">
             <div class="field-sub">
                 <label class = "label">Email</label>
@@ -54,7 +66,6 @@
             <button class="delete-account" type="submit" >Delete Account</button>
         </form>
     </div>
-
     <script src="/javascripts/themes.js"></script>
 
 </body>

@@ -227,4 +227,32 @@ router.get('/userInfo', function(req, res) {
 	});
 });
 
+
+//Upload Pin
+router.post('/editAccount', upload.any(), function(req, res){
+	var f = req.files[0];
+	var u = req.body;
+
+	var params = {table:'User', 
+		set:{FirstName: u.FirstName, LastName: u.LastName, Email: u.Email, ProfilePicture: f.location}, 
+		where: {UserKey: req.user.UserKey}};
+
+	async.series([function(callback){
+		User.update(params,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	},function(callback){
+		User.getUserById(req.user.UserKey,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	}
+	], function(err, results){
+		
+		res.json(results[1]);
+	});
+	
+});
+
 module.exports = router;

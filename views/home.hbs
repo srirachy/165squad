@@ -104,8 +104,10 @@
 
     <!--Profile info-->
     <div class="bio">
-        <div id="profile_photo"></div>
-        <div id="name">{{userFirstName}} {{userLastName}}</div>
+        <div id="profile_photo">
+            <img ng-src="<% user.ProfilePicture %>" ng-cloak id="profile_photo">
+        </div>
+        <div id="name">{{userFirstName}} {{userLastName}} </div>
     </div>
 
     <!--Boards-->

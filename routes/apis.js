@@ -8,6 +8,7 @@ var request = require('request');
 var multer = require('multer');
 var aws = require('aws-sdk');
 var multerS3 = require('multer-s3');
+var bcrypt = require('bcryptjs');
 
 
 // Amazon S3 Stuff
@@ -212,5 +213,60 @@ router.get('/feed', function(req, res) {
 		res.json(results[0]);
 	});
 });
+
+//Get user info
+router.get('/userInfo', function(req, res) {
+  	var promises = [new Promise(function(resolve, reject){
+		User.select({from: 'vUserInfo', where:{UserKey: req.user.UserKey}},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0][0]);
+	});
+});
+
+
+//Edit Account
+router.post('/editAccount', upload.any(), function(req, res){
+	var f = {location: ''};
+	if(typeof req.files[0] != 'undefined'){
+		f = req.files[0];
+	}
+	var u = req.body;
+
+	var params = {table:'User', 
+		set:{FirstName: u.FirstName, LastName: u.LastName, Email: u.Email}, 
+		where: {UserKey: req.user.UserKey}};
+	if(u.PasswordChanged != 'false'){
+		const saltRounds = 10;
+		var salt = bcrypt.genSaltSync(saltRounds);
+		var hash = bcrypt.hashSync(u.Password, salt);
+		params.set.Password = hash;
+	}
+	if(u.PictureChanged != 'false'){
+		params.set.ProfilePicture = f.location;
+	}
+
+	async.series([function(callback){
+		User.update(params,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	},function(callback){
+		User.getUserById(req.user.UserKey,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	}
+	], function(err, results){
+		
+		res.json(results[1]);
+	});
+	
+});
+
 
 module.exports = router;

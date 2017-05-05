@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/stylesheets/pinform.css">
+    <style>
+		.cropArea {
+			overflow: hidden;
+			width:100%;
+			height:auto;
+			display:block;
+			position: relative;
+		}
+		.cropArea canvas{
+		margin: 0!important;
+		}
+	    img-crop {
+	      display: block;
+	      width: 100%;
+	      height: 100%;
+	      canvas{
+	        margin: 0!important;
+	      }
+	    }
+    </style>
+</head>
+
+<body>
+
+<div ng-cloak class="pin-form">
+	<div class="modal-header">
+    	Image Area<br/>
+	</div>
+	<div class = "container-fluid">
+        <span id="sub-heading"></span>
+		<div class="row">
+			<div class="col-md-1"></div>
+	   		<div class="col-md-10">
+	            <img-crop image="thumbnail.dataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''" ng-show="!loading && thumbnail.dataUrl" class="cropArea" change-on-fly="false">
+	            </img-crop>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-md-3"></div>
+	    		<div class="col-md-6">
+		    		<button class="pin-form-button" ng-click="saveImage()">SELECT</button>
+		    	</div>
+		    	<div class="col-md-3"></div>
+            </div>
+	    	<div class="col-md-1"></div>
+	    </div>
+	</div>
+</div>
+</body>
+</html>

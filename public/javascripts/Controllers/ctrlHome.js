@@ -8,10 +8,17 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
       console.log(data);
     });
 
-
     $http.get('/api/userPins')
     .success(function (result){
       $scope.pins = result;
+    })
+    .error(function (data, status){
+      console.log(data);
+    });
+
+    $http.get('/api/userInfo')
+    .success(function (result){
+      $scope.user = result;
     })
     .error(function (data, status){
       console.log(data);

@@ -70,6 +70,12 @@ exports.getFeed = function(params, done){
     })
 }
 
+exports.selectAll = function(params, done){
+  db.get().query('SELECT * FROM ' + params.from, params.where, function (err, rows) {
+      if (err) return done(err)
+      done(null, rows)
+    })
+}
 
 exports.comparePassword = function(candidatePassword, hash, callback){
 	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {

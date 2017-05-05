@@ -32,13 +32,13 @@
             <div id="underline"></div>
         </div>
         <div class="filter-buttons">
-            <span class="f-b-wrapper" id="all">All</span>
-            <span class="f-b-wrapper" id="public">Public</span>
-            <span class="f-b-wrapper" id="private">Private</span>
+            <span class="f-b-wrapper" id="all" ng-click="changeBoardFilter('all')">All</span>
+            <span class="f-b-wrapper" id="public" ng-click="changeBoardFilter('public')">Public</span>
+            <span class="f-b-wrapper" id="private" ng-click="changeBoardFilter('private')">Private</span>
         </div>
         <div class = "boards-wrapper">
         <div class="container">
-            <div class="container-box">
+            <div class="container-box" ng-show="boardFilter == 'all'">
                 <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
 
                 <span id="all-boards">
@@ -54,14 +54,38 @@
                     </div>
                 </span>
             </div>
+            <div class="container-box" ng-show="boardFilter == 'public'">
+                <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
 
-            <span id="public-boards">
-                public boards go here
-            </span>
+                <span id="all-boards">
+                    <div style="display: inline-block" ng-repeat="board in boards">
+                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-show="!board.Private">
+                            <div class="element-title">
+                                <span id="text"><%board.Name%></span>
+                            </div>
+                            <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
+                            <div class="shadow-wrapper"></div>
+                            <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class="container-box" ng-show="boardFilter == 'private'">
+                <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
 
-            <span id="private-boards">
-                private boards go here
-            </span>
+                <span id="all-boards">
+                    <div style="display: inline-block" ng-repeat="board in boards">
+                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-show="board.Private">
+                            <div class="element-title">
+                                <span id="text"><%board.Name%></span>
+                            </div>
+                            <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
+                            <div class="shadow-wrapper"></div>
+                            <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
+                        </div>
+                    </div>
+                </span>
+            </div>
         </div>
         </div>
     </div>

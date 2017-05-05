@@ -24,25 +24,37 @@ angular.module('myApp').controller('ctrlEditAccount', ['$scope', '$uibModal', '$
 	};
 
 	$scope.save = function(){
+		var passwordChanged = false;
+		var pictureChanged = false;
+		if($scope.user.Password != maskedPassword){
+	        passwordChanged = true;
+	    }
+	    var fd = new FormData();
+
 		if($scope.picChanged){
-	        var fd = new FormData();
-	        var blob = dataURItoBlob($scope.user.ProfilePicture);
-	        fd.append("file", blob);
-	        fd.append("FirstName", $scope.user.FirstName);
-	        fd.append("LastName", $scope.user.LastName);
-	        fd.append("Email", $scope.user.Email);
-	        
-	        $http.post('/api/editAccount/', fd, {
-	            transformRequest: angular.identity,
-	            headers: {'Content-Type': undefined},
-	        })
-	        .success(function (result){
-	          $window.location.href = '/users/home/'
-	        })
-	        .error(function (data, status){
-	          console.log(data);
-	        });
-        }
+			var blob = dataURItoBlob($scope.user.ProfilePicture);
+	    	fd.append("file", blob);
+	        var pictureChanged = true;
+	    }
+	    
+        fd.append("FirstName", $scope.user.FirstName);
+        fd.append("LastName", $scope.user.LastName);
+        fd.append("Email", $scope.user.Email);
+        fd.append("PasswordChanged", passwordChanged);
+        fd.append("Password", $scope.user.Password);
+        fd.append("PictureChanged", pictureChanged);
+        
+        $http.post('/api/editAccount/', fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined},
+        })
+        .success(function (result){
+          $window.location.href = '/users/home/'
+        })
+        .error(function (data, status){
+          console.log(data);
+        });
+        
 	};
 
 	function dataURItoBlob(dataURI) {

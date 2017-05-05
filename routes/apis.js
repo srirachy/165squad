@@ -8,6 +8,7 @@ var request = require('request');
 var multer = require('multer');
 var aws = require('aws-sdk');
 var multerS3 = require('multer-s3');
+var bcrypt = require('bcryptjs');
 
 
 // Amazon S3 Stuff
@@ -228,14 +229,26 @@ router.get('/userInfo', function(req, res) {
 });
 
 
-//Upload Pin
+//Edit Account
 router.post('/editAccount', upload.any(), function(req, res){
-	var f = req.files[0];
+	var f = {location: ''};
+	if(typeof req.files[0] != 'undefined'){
+		f = req.files[0];
+	}
 	var u = req.body;
 
 	var params = {table:'User', 
-		set:{FirstName: u.FirstName, LastName: u.LastName, Email: u.Email, ProfilePicture: f.location}, 
+		set:{FirstName: u.FirstName, LastName: u.LastName, Email: u.Email}, 
 		where: {UserKey: req.user.UserKey}};
+	if(u.PasswordChanged != 'false'){
+		const saltRounds = 10;
+		var salt = bcrypt.genSaltSync(saltRounds);
+		var hash = bcrypt.hashSync(u.Password, salt);
+		params.set.Password = hash;
+	}
+	if(u.PictureChanged != 'false'){
+		params.set.ProfilePicture = f.location;
+	}
 
 	async.series([function(callback){
 		User.update(params,function(err, result){

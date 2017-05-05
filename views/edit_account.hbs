@@ -60,8 +60,11 @@
                 <label class = "label">Confirm Password</label>
                 <input class="text-field" type="password" ng-model="user.ConfirmPassword">
             </div>
+            <div class="field-sub" ng-show="user.Password != user.ConfirmPassword">
+                <label class = "label" style="color: red;">Passwords don't match!</label>
+            </div>
         </div>
-        <button type="submit" class = "save-button" ng-click="save()">SAVE</button>
+        <button type="submit" class = "save-button" ng-click="save()" ng-disabled="user.Password != user.ConfirmPassword">SAVE</button>
         <form method="post" action="/api/users/delete">
             <button class="delete-account" type="submit" >Delete Account</button>
         </form>

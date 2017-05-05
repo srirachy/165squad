@@ -256,4 +256,31 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
   };
 
 
+
+    // Open modal to view pin
+  $scope.viewPin = function (pin) {
+    var modalInstance = $uibModal.open({
+      templateUrl: '/forms/viewPin',
+      controller: function ($scope, $uibModalInstance) { 
+          $scope.pinURL = pin.URL;
+
+          $scope.close = function () {
+            $uibModalInstance.close();  
+          };
+      },
+      size: 'md',
+      resolve: {
+
+      }
+
+    });
+    // This gets called after modal closes
+    modalInstance.result.then(function () {
+
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+
 }]); 

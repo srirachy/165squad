@@ -89,7 +89,7 @@
         </div>
         </div>
     </div>
-
+    <!--showing all pins-->
     <span class="pin-wrapper">
     <div id = "sliding-wall">
         <div id = "close-show"><span class="glyphicon glyphicon-remove-circle"></span></div>
@@ -103,7 +103,7 @@
             <a ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
             <span class="pins-block">
                 <span ng-repeat="pin in pins">
-                    <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false">
+                    <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-click="viewPin(pin)">
                         <img ng-src="<% pin.URL %>"/>
                     </div>
                 </span>
@@ -165,7 +165,7 @@
             <a ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
             <span class="pins-block">
                 <span ng-repeat="pin in pins|limitTo:3">
-                    <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false">
+                    <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-click="viewPin(pin)">
                         <img ng-src="<% pin.URL %>"/>
                     </div>
                 </span>

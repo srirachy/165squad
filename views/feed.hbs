@@ -5,7 +5,6 @@
     <title>PinPin</title>
     <link rel="stylesheet" href="/stylesheets/feed.css">
     <script src="/javascripts/Controllers/ctrlFeed.js"></script>
-
 <style>
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -16,19 +15,23 @@
 <div class="container">
     <div class="masonry" ng-cloak>
         <div class = "item" ng-repeat="pin in pins" ng-show="initialized" ng-cloak>
-            <div class="item-options">
-                <div class="save-pin"><span class="glyphicon glyphicon-pushpin"></span></div>
-                <div class="pin-pin"><span class="glyphicon glyphicon-pushpin"></span><span class="glyphicon glyphicon-pushpin"></span></div>
-                <div class="view-board"><span class="glyphicon glyphicon-book"></span></div>
-            </div>
-            <img ng-src="<% pin.URL %>" ng-cloak>
+            <span class="image-area">
+                <span class="pin-pin-clicked"></span>
+                <div class="pin-pin"><img style="width: 40px" src="/images/push-pin.png"></div>
+                <img src="<% pin.URL %>" ng-cloak>
+            </span>
             <div class="pin-uploader">
                 <span class="uploader-photo"><img style="width: 200%" ng-src="<%pin.ProfilePicture%>" ng-cloak></span>
                 <span class="uploader-name"><% pin.FirstName + ' ' + pin.LastName %></span>
                 <span class="follow-uploader">Follow</span>
             </div>
+            <div class="item-options">
+                <div class="option-element"><span class="glyphicon glyphicon-pushpin"></span></div>
+                <div class="option-element"><span class="glyphicon glyphicon-book"></span></div>
+            </div>
         </div>
     </div>
 </div>
+<script src="/javascripts/feed.js"></script>
 </body>
 </html>

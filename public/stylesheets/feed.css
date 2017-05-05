@@ -68,65 +68,89 @@
     opacity: 0.5;
 }
 
-.masonry .item:hover .item-options{
-    opacity: 0.9;
-}
-
-.masonry .item .item-options:hover{
-    -webkit-box-shadow: -4px 4px 10px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: -4px 4px 10px 0px rgba(0,0,0,0.75);
-    box-shadow: -4px 4px 10px 0px rgba(0,0,0,0.75);
-}
-
 .masonry .item .item-options{
     display: block;
-    position: absolute;
-    left: 150px;
     float: right;
-    font-size: 25px;
+    font-size: 14px;
     color: var(--secondary-bright);
-    border-bottom: solid 1px;
-    border-left: solid 1px;
-    border-color: var(--primary-dark1);
+    background-color: var(--primary-dark1);
     box-sizing: border-box;
     z-index: 2;
-    width: 129px;
-    opacity: 0;
+    width: 100%;
     transition: all 0.3s ease-in-out;
-}
-
-.masonry .item .save-pin{
-    display: inline-block;
-    cursor: pointer;
-    box-sizing: border-box;
-    width: 30px;
-    height: 30px;
     text-align: center;
-    margin: 8px 5px;
-    float: right;
+    padding: 5px 5px;
 }
 
-.masonry .item .pin-pin{
+.masonry .item .option-element{
     display: inline-block;
-    padding-top: 2px;
     cursor: pointer;
     box-sizing: border-box;
-    width: 30px;
-    height: 30px;
-    margin: 8px 5px;
-    float: right;
+    width: 40%;
+    height: 25px;
+    padding: 5px 0;
+    text-align: center;
+    transition: all 0.1s ease-in;
+}
+
+.masonry .item .option-element:hover{
+    background-color: var(--primary);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.masonry .item .image-area{
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+}
+
+.masonry .item .image-area .pin-pin{
+    position: absolute;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 8px;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0,0,0,0.5);
+    border: solid 1px #000;
+    border-radius: 30px;
     font-size: 22px;
-    letter-spacing: -10px;
+    margin:auto;
+    top:0;
+    bottom:80px;
+    left:0;
+    right:0;
+    opacity: 0;
+    transition: all 0.2s ease-in;
 }
 
-.masonry .item .view-board{
-    display: inline-block;
+.masonry .item .image-area:hover .pin-pin{
+    opacity: 0.5;
+    filter: blur(1px);
+}
+
+.masonry .item .image-area .pin-pin:hover{
+    opacity: 0.9;
+    filter: blur(0);
+}
+
+.masonry .item .image-area .pin-pin-clicked{
+    position: absolute;
     cursor: pointer;
     box-sizing: border-box;
-    width: 30px;
-    height: 30px;
-    margin: 8px 5px;
-    float: right;
+    width: 62px;
+    height: 62px;
+    border: solid 1px var(--secondary);
+    border-radius: 30px;
+    margin:auto;
+    top:0;
+    bottom:80px;
+    left:0;
+    right:0;
+    opacity: 0;
 }
 
 .masonry .item .pin-uploader{

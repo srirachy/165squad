@@ -160,6 +160,42 @@ body{
     color: var(--gray-white);
 }
 
+@media only screen and (max-width: 900px){
+    .nav.scrolled{
+        height: 50px !important;
+        width: 90%;
+    }
+
+    #nav-wrapper{
+        height: auto;
+        margin: auto !important;
+        width: 90% !important;
+        text-align: center;
+    }
+
+    .nav{
+        width: 40%;
+        height: auto !important;
+        margin: auto !important;
+        text-align: center !important;
+    }
+
+    .nav .nav_elem{
+        width: 50px;
+        margin: auto;
+        margin-bottom: 5px !important;
+        /*display: block !important;*/
+    }
+
+    .nav .nav_elem.search{
+        width: 150px !important;
+    }
+
+    .nav .nav_elem.search .search_text{
+        width: 100px !important;
+    }
+}
+
 .nav .nav_elem:hover{
     border-top: solid 2px var(--secondary-bright);
     -webkit-transform: scale(1.1);

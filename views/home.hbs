@@ -25,9 +25,9 @@
 <body id = "profile_background" ng-controller="ctrlHome">
 
     <!--showing all boards-->
-    <div id = "show-boards">
+    <div id = "sliding-wall">
         <div id = "close-show"><span class="glyphicon glyphicon-remove-circle"></span></div>
-        <div class="title-secondary">
+        <div class="title-secondary-boards">
             BOARDS
             <div id="underline"></div>
         </div>
@@ -39,32 +39,68 @@
         <div class = "boards-wrapper">
         <div class="container">
             <div class="container-box">
-                <a href="#"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></a>
+                <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
 
                 <span id="all-boards">
-                    <a href="#" ng-repeat="board in boards">
-                        <div class="element" ng-mouseenter="options=true" ng-mouseleave="options=false">
+                    <div style="display: inline-block" ng-repeat="board in boards">
+                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false">
                             <div class="element-title">
-                                <%board.Name%>
+                                <span id="text"><%board.Name%></span>
                             </div>
-                            <div>
-                                <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
-                            </div>
+                            <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
+                            <div class="shadow-wrapper"></div>
+                            <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
                         </div>
-                    </a>
-                </span>
-
-                <span id="public-boards">
-                    public boards go here
-                </span>
-
-                <span id="private-boards">
-                    private boards go here<!--<br>add button's form here can have the private boolean set to true since it is under "private" section?-->
+                    </div>
                 </span>
             </div>
+
+            <span id="public-boards">
+                public boards go here
+            </span>
+
+            <span id="private-boards">
+                private boards go here
+            </span>
         </div>
         </div>
     </div>
+
+    <span class="pin-wrapper">
+    <div id = "sliding-wall">
+        <div id = "close-show"><span class="glyphicon glyphicon-remove-circle"></span></div>
+        <div class="title-secondary-pins">
+            PINS
+            <div id="underline"></div>
+        </div>
+        <div class = "pin-wrapper-2">
+        <div class="container">
+        <div class="container-box">
+            <a ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
+            <span class="pins-block">
+                <span ng-repeat="pin in pins">
+                    <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false">
+                        <img ng-src="<% pin.URL %>"/>
+                    </div>
+                </span>
+                <script>
+                    $('.element-pin img').each(function(_, img) {
+                        var $this = $(this);
+
+                        if( $this.height() / $this.width() < 0.6666666666666667 ) {
+                            $this.css({
+                                height: '220px',
+                                maxWidth: 'none'
+                            });
+                        }
+                    });
+                </script>
+            </span>
+        </div>
+    </div>
+    </div>
+    </div>
+    </span>
 
     <!--Profile info-->
     <div class="bio">
@@ -78,7 +114,7 @@
     <div class="container">
         <div class="title">
             BOARDS (<%boards.length%>)
-            <div id="board-listener">VIEW ALL</div>
+            <div id="show-all-listener"><span id="boards">VIEW ALL</span></div>
         </div>
         <div class="container-box">
             <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
@@ -99,10 +135,11 @@
     <div class="container">
         <div class="title">
             <a href="#">PINS (<%pins.length%>)</a>
+            <div id="show-all-listener"><span id="pins">VIEW ALL</span></div>
         </div>
         <div class="container-box">
             <a ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
-            <span id="pins-block">
+            <span class="pins-block">
                 <span ng-repeat="pin in pins|limitTo:3">
                     <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false">
                         <img ng-src="<% pin.URL %>"/>
@@ -117,6 +154,7 @@
                                 height: '220px',
                                 maxWidth: 'none'
                             });
+                        }
                     });
                 </script>
             </span>

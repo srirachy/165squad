@@ -100,7 +100,7 @@
     border: 0;
     outline: 0;
     border-bottom: 1px solid var(--gray-white);
-    color: var(--main-white);
+    color: var(--gray-white);
     letter-spacing: 1px;
 }
 
@@ -116,6 +116,7 @@
 
 #account_background .label{
     font-size: 14px;
+    font-weight: 700;
     margin-right: 10px;
     letter-spacing: 3px;
     color: var(--gray-white);

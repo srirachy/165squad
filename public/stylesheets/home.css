@@ -58,7 +58,7 @@
 
 .container .title{
     height: 25px;
-    width: 960px;
+    width: 100%;
     margin: auto;
     margin-bottom: 10px;
     border-bottom: solid 1px;
@@ -257,7 +257,7 @@ a{
 
 /****Pins-min list****/
 
-#pins-block .element-pin{
+.pins-block .element-pin{
     cursor: default;
     display: inline-block !important;
     position: relative;
@@ -295,27 +295,45 @@ a{
     width: 100%;
 }
 
+@media only screen and (max-width: 960px) {
+    .container{
+        width: 90% !important;
+        height: auto;
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+
+    .container-box {
+        width: 90% !important;
+        text-align: center;
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}
+
 /**showing all boards***/
 
-#board-listener{
+#show-all-listener{
     display: block;
     position: relative;
     padding: 10px;
     bottom: 12px;
     cursor: pointer;
     float: right;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 3px;
     border: solid 1px;
-    border-radius: 3px;
+    border-radius: 1px;
     opacity: 0.8;
     color: var(--gray-white);
 }
 
-#board-listener:hover{
+#show-all-listener:hover{
     color: var(--main-white);
 }
-#show-boards{
+#sliding-wall{
     width: 100%;
     height: 100%;
     bottom: 100%;
@@ -330,7 +348,18 @@ a{
     transition: all 1s;
 }
 
-#profile_background .title-secondary{
+#profile_background .title-secondary-boards{
+    display: block;
+    height: 40px;
+    width: 80%;
+    font-size: 24px;
+    letter-spacing: 4px;
+    color: var(--primary);
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+#profile_background .title-secondary-pins{
     display: block;
     height: 40px;
     width: 80%;
@@ -351,7 +380,7 @@ a{
     cursor: pointer;
 }
 
-#show-boards .filter-buttons{
+#sliding-wall .filter-buttons{
     display: block;
     width: 80%;
     margin: auto;
@@ -388,7 +417,7 @@ a{
 #underline{
     display: block;
     content: '';
-    border-bottom: solid 2px var(--primary);
+    border-bottom: solid 1px var(--primary);
     transform: scaleX(0);
 }
 
@@ -407,7 +436,7 @@ a{
      }
 }
 
-.boards-wrapper .container {
+.container {
     width: 960px;
     text-align: left;
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PinPin </title>
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link rel="stylesheet" href="/stylesheets/loader.css">
+    <script src="/javascripts/Controllers/ctrlViewBoard.js"></script>
+
+    <style>
+        .boardHeader{
+            display: block;
+            width: 90%;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .boardHeader #name{
+            height: 50px;
+            width: 100%;
+            text-align: center;
+            font-size: 3vh;
+            letter-spacing: 5px;
+            color: var(--gray-white);
+        }
+    </style>
+</head>
+
+<body id = "profile_background" ng-controller="ctrlViewBoard" ng-init="init()">
+
+    <!--Board info-->
+    <div class="boardHeader">
+        <div id="name">Board Name Here </div>
+    </div>
+
+    <!--showing all pins-->
+    <span class="pin-wrapper">
+        <div class="title-secondary-pins">
+            PINS
+            <div id="underline"></div>
+        </div>
+        <div class = "pin-wrapper-2">
+        <div class="container">
+        <div class="container-box">
+            <a ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
+            <span class="pins-block">
+                <span ng-repeat="pin in pins">
+                    <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-click="viewPin(pin)">
+                        <img ng-src="<% pin.URL %>"/>
+                    </div>
+                </span>
+                <script>
+                    $('.element-pin img').each(function(_, img) {
+                        var $this = $(this);
+
+                        if( $this.height() / $this.width() < 0.6666666666666667 ) {
+                            $this.css({
+                                height: '220px',
+                                maxWidth: 'none'
+                            });
+                        }
+                    });
+                </script>
+            </span>
+        </div>
+    </div>
+    </div>
+    </span>
+
+    <script src="/javascripts/home.js"></script>
+</body>
+</html>

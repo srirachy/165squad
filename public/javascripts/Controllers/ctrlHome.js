@@ -283,4 +283,10 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
   };
 
 
+
+  $scope.redirect = function(url){
+    $window.location.href = url;
+  };
+
+
 }]); 

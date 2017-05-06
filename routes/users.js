@@ -153,4 +153,11 @@ router.get('/feed', function(req, res) {
 router.get('/edit_account', function(req, res) {
     res.render('edit_account', {edit_account: true, feed: false, home: false});
 });
+
+//account settings
+router.get('/boards/:boardName', function(req, res) {
+    res.render('view_board', {});
+});
+
+
 module.exports = router;

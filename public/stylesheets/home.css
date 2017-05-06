@@ -37,6 +37,9 @@
     margin-bottom: 20px;
     border: solid 1PX;
     border-radius: 100px;
+    -webkit-box-shadow: 0px 10px 52px -9px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 10px 52px -9px rgba(0,0,0,0.5);
+    box-shadow: 0px 10px 52px -9px rgba(0,0,0,0.5);
 }
 
 .bio #name{

@@ -172,6 +172,18 @@
     border-radius: 40px;
     border: solid 1px;
     float: left;
+    position: relative;
+
+}
+
+.pin-uploader .uploader-photo img{
+    width: 40px !important;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
 }
 
 .pin-uploader .uploader-name{

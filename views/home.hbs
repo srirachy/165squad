@@ -127,11 +127,27 @@
     </span>
 
     <!--Profile info-->
-    <div class="bio">
-        <div id="profile_photo">
-            <img ng-src="<% user.ProfilePicture || '/images/user5.png' %>" ng-cloak id="profile_photo">
+    <div class="section group bio">
+        <div class="col span_1_of_2">
+            <div id="profile_photo">
+                <img ng-src="<% user.ProfilePicture || '/images/user5.png' %>" ng-cloak id="profile_photo">
+            </div>
+            <div id="name">{{userFirstName}} {{userLastName}} </div>
         </div>
-        <div id="name">{{userFirstName}} {{userLastName}} </div>
+        <div class="col span_1_of_2">
+            <div class="follow-detail">
+                <div class="col span_1_of_2 align-right">Followers</div><div class="col span_1_of_2 follow-number-style">#</div>
+            </div>
+            <div class="follow-detail">
+                <div class="col span_1_of_2 align-right">Following</div><div class="col span_1_of_2 follow-number-style">#</div>
+            </div>
+            <div class="follow-detail">
+                <div class="follow-button">
+                    <span style="font-size: 12px">If viewing other user's profile.</span><br>
+                    Follow
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--Boards-->

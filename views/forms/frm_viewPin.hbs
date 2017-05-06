@@ -2,32 +2,15 @@
 <html>
 <head>
     <link rel="stylesheet" href="/stylesheets/pinform.css">
-    <link rel="stylesheet" href="/stylesheets/loader.css">
     <style>
     </style>
 </head>
 
 <body>
 
-<div ng-cloak class="pin-form">
-	<div class="modal-header">
-    	<br/>
-	</div>
-	<div class = "container-fluid">
-        <span id="sub-heading"></span>
-		<div class="row">
-	   		<div class="col-md-12">
-	            <img ng-src="<% pinURL %>" style="width: 100%; height: auto;">
-	    	</div>
-	    	<div class="row">
-	    		<div class="col-md-3"></div>
-	    		<div class="col-md-6">
-		    		<button class="pin-form-button" ng-click="close()">CLOSE</button>
-		    	</div>
-		    	<div class="col-md-3"></div>
-            </div>
-	    </div>
-	</div>
+<div ng-cloak class="view-pin">
+    <div class="view-pin-close" ng-click="close()">X</div>
+    <img ng-src="<% pinURL %>">
 </div>
 </body>
 </html>

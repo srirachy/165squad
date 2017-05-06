@@ -203,7 +203,7 @@ router.get('/userPins', function(req, res) {
 //Get user feed
 router.get('/feed', function(req, res) {
   	var promises = [new Promise(function(resolve, reject){
-		User.getFeed({from: 'vFeed'},function(err, result){
+		User.getFeed({UserKey: req.user.UserKey},function(err, result){
 			if(err) throw err;
 			resolve(result);
 		});
@@ -268,5 +268,45 @@ router.post('/editAccount', upload.any(), function(req, res){
 	
 });
 
+//Create follower
+router.post('/follow', function(req, res) {
+	var body = req.body;
+	var params = {into: 'UserFollower', values: [{FromUserKey: req.user.UserKey, ToUserKey: body.UserKey}]};
+	async.series([function(callback){
+		User.insert(params,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	},function(callback){
+		User.select({from: 'vUserFollowing', where:{UserKey: req.user.UserKey}},function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	}
+	], function(err, results){
+		res.json(results[1]);
+	});
+});
+
+//Delete follower
+router.post('/unfollow', function(req, res) {
+	var body = req.body;
+	var params = {from: 'UserFollower', FromUserKey: req.user.UserKey, ToUserKey: body.UserKey};
+
+	async.series([function(callback){
+		User.deleteFollower(params,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	},function(callback){
+		User.select({from: 'vUserFollowing', where:{UserKey: req.user.UserKey}},function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	}
+	], function(err, results){
+		res.json(results[1]);
+	});
+});
 
 module.exports = router;

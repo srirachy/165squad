@@ -64,14 +64,21 @@ exports.getCategories = function(params, done){
 }
 
 exports.getFeed = function(params, done){
-  db.get().query('SELECT * FROM ' + params.from, function (err, rows) {
+  db.get().query('CALL sp_getFeed(' + params.UserKey + ')', function (err, rows) {
       if (err) return done(err)
-      done(null, rows)
+      done(null, rows[0])
     })
 }
 
 exports.selectAll = function(params, done){
   db.get().query('SELECT * FROM ' + params.from, params.where, function (err, rows) {
+      if (err) return done(err)
+      done(null, rows)
+    })
+}
+
+exports.deleteFollower = function(params, done){
+  db.get().query('DELETE FROM ' + params.from + ' WHERE FromUserKey = ' + params.FromUserKey + ' AND ToUserKey = ' + params.ToUserKey , function (err, rows) {
       if (err) return done(err)
       done(null, rows)
     })

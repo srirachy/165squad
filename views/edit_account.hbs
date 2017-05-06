@@ -34,7 +34,7 @@
                 </label>
                 <input id="file-input" type="file" style="display:none;" onchange="angular.element(this).scope().cropPicture(this.files)" accept="image/*" ng-model="user.ProfilePicture">
             </div>
-            <img class="photo-resize" src="http://i.imgur.com/Fx6BGlt.jpg" ng-show="!user.ProfilePicture" ng-cloak>
+            <img class="photo-resize" src="/images/user5.png" ng-show="!user.ProfilePicture" ng-cloak>
             <img class="photo-resize" ng-src=" <% user.ProfilePicture %>" ng-show="user.ProfilePicture" ng-cloak>
         </div>
 

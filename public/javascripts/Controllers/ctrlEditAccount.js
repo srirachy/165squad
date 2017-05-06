@@ -76,8 +76,8 @@ angular.module('myApp').controller('ctrlEditAccount', ['$scope', '$uibModal', '$
 
 	    return new Blob([ia], {type:mimeString});
 	}
-
-        // Add pin from Device modal
+  
+  // Open modal to crop profile picture
   $scope.cropPicture = function (files) {
     var modalInstance = $uibModal.open({
       templateUrl: '/forms/cropPicture',

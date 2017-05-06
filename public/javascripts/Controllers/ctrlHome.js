@@ -24,6 +24,13 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
       console.log(data);
     });
 
+    $scope.boardFilter = 'all';
+
+    $scope.changeBoardFilter = function (type){
+      $scope.boardFilter = type;
+      console.log(type);
+    }
+
   // Open a modal window to update/create/delete a board
   $scope.openBoardFormModal = function (size, selectedItem, index) {
     $scope.index = index;
@@ -243,6 +250,33 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
     // This gets called after modal closes
     modalInstance.result.then(function () {
       // code to select image
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+
+
+    // Open modal to view pin
+  $scope.viewPin = function (pin) {
+    var modalInstance = $uibModal.open({
+      templateUrl: '/forms/viewPin',
+      controller: function ($scope, $uibModalInstance) { 
+          $scope.pinURL = pin.URL;
+
+          $scope.close = function () {
+            $uibModalInstance.close();  
+          };
+      },
+      size: 'md',
+      resolve: {
+
+      }
+
+    });
+    // This gets called after modal closes
+    modalInstance.result.then(function () {
+
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });

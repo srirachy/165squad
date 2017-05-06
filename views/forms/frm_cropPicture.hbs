@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="/stylesheets/pinform.css">
+    <link rel="stylesheet" href="/stylesheets/loader.css">
     <style>
 		.cropArea {
 			overflow: hidden;
@@ -35,6 +36,7 @@
 		<div class="row">
 			<div class="col-md-1"></div>
 	   		<div class="col-md-10">
+	   			<div class="form-loader" ng-show="loading && !thumbnail.dataUrl"><span class="loader"><span class="loader-inner"></span></span></div>
 	            <img-crop image="thumbnail.dataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''" ng-show="!loading && thumbnail.dataUrl" class="cropArea" change-on-fly="false">
 	            </img-crop>
 	    	</div>

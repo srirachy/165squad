@@ -17,13 +17,14 @@
         <div class = "item" ng-repeat="pin in pins" ng-show="initialized" ng-cloak>
             <span class="image-area">
                 <span class="pin-pin-clicked"></span>
-                <div class="pin-pin"><img style="width: 40px" src="/images/push-pin.png"></div>
+                <div class="pin-pin" ng-click="test(pin)"><img style="width: 40px" src="/images/push-pin.png"></div>
                 <img src="<% pin.URL %>" ng-cloak>
             </span>
             <div class="pin-uploader">
                 <span class="uploader-photo"><img style="width: 200%" ng-src="<%pin.ProfilePicture%>" ng-cloak></span>
                 <span class="uploader-name"><% pin.FirstName + ' ' + pin.LastName %></span>
-                <span class="follow-uploader">Follow</span>
+                <span class="follow-uploader" ng-show="pin.Following == 'N' && pin.UserKey != user.UserKey" ng-click="follow(pin.UserKey, $index )">Follow</span>
+                <span class="follow-uploader" ng-show="pin.Following == 'Y' && pin.UserKey != user.UserKey" ng-click="unfollow(pin.UserKey, $index )">Unfollow</span>
             </div>
             <div class="item-options">
                 <div class="option-element"><span class="glyphicon glyphicon-pushpin"></span></div>

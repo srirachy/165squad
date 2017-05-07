@@ -25,11 +25,11 @@
     </style>
 </head>
 
-<body id = "profile_background" ng-controller="ctrlViewBoard" ng-init="init()">
+<body id = "profile_background" ng-controller="ctrlViewBoard" ng-init="init({{BoardKey}})">
 
     <!--Board info-->
     <div class="boardHeader">
-        <div id="name">Board Name Here </div>
+        <div id="name"><%pins[0].BoardName%></div>
     </div>
 
     <!--showing all pins-->

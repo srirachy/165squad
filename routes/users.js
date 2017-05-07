@@ -155,8 +155,22 @@ router.get('/edit_account', function(req, res) {
 });
 
 //account settings
+router.get('/boards/:boardKey/:boardName', function(req, res) {
+	var boardKey = req.params.boardKey;
+	var boardName = req.params.boardName;
+	
+	req.session.boardKey = boardKey;
+
+	res.redirect('/users/boards/' + boardName);
+});
+
+//account settings
 router.get('/boards/:boardName', function(req, res) {
-    res.render('view_board', {});
+	var boardKey = req.session.boardKey;
+
+	req.session.boardKey = null;
+
+    res.render('view_board', {BoardKey: boardKey});
 });
 
 

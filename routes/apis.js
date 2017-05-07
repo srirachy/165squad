@@ -309,4 +309,20 @@ router.post('/unfollow', function(req, res) {
 	});
 });
 
+
+//Get user pins
+router.post('/boardPins', function(req, res) {
+  	var promises = [new Promise(function(resolve, reject){
+		User.getBoardPins({from: 'vUserPins', UserKey: req.user.UserKey, BoardKey: req.body.BoardKey},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0]);
+	});
+});
+
+
 module.exports = router;

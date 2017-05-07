@@ -43,12 +43,12 @@
 
                 <span id="all-boards">
                     <div style="display: inline-block" ng-repeat="board in boards">
-                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)">
+                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" >
                             <div class="element-title">
                                 <span id="text"><%board.Name%></span>
                             </div>
                             <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
-                            <div class="shadow-wrapper"></div>
+                            <div class="shadow-wrapper" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)"></div>
                             <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
                         </div>
                     </div>
@@ -59,12 +59,12 @@
 
                 <span id="all-boards">
                     <div style="display: inline-block" ng-repeat="board in boards">
-                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-show="!board.Private" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)" >
+                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false">
                             <div class="element-title">
                                 <span id="text"><%board.Name%></span>
                             </div>
                             <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
-                            <div class="shadow-wrapper"></div>
+                            <div class="shadow-wrapper" ng-show="!board.Private" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)" ></div>
                             <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
                         </div>
                     </div>
@@ -75,12 +75,12 @@
 
                 <span id="all-boards">
                     <div style="display: inline-block" ng-repeat="board in boards">
-                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-show="board.Private" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)">
+                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false">
                             <div class="element-title">
                                 <span id="text"><%board.Name%></span>
                             </div>
                             <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
-                            <div class="shadow-wrapper"></div>
+                            <div class="shadow-wrapper" ng-show="board.Private" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)"></div>
                             <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
                         </div>
                     </div>
@@ -160,12 +160,12 @@
         <div class="container-box">
             <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
             <div style="display: inline-block" ng-repeat="board in boards|limitTo:3">
-                <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)">
+                <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false">
                     <div class="element-title">
                         <span id="text"><%board.Name%></span>
                     </div>
                     <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
-                    <div class="shadow-wrapper"></div>
+                    <div class="shadow-wrapper" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)"></div>
                     <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
                 </div>
             </div>

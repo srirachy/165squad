@@ -153,4 +153,25 @@ router.get('/feed', function(req, res) {
 router.get('/edit_account', function(req, res) {
     res.render('edit_account', {edit_account: true, feed: false, home: false});
 });
+
+//account settings
+router.get('/boards/:boardKey/:boardName', function(req, res) {
+	var boardKey = req.params.boardKey;
+	var boardName = req.params.boardName;
+	
+	req.session.boardKey = boardKey;
+
+	res.redirect('/users/boards/' + boardName);
+});
+
+//account settings
+router.get('/boards/:boardName', function(req, res) {
+	var boardKey = req.session.boardKey;
+
+	req.session.boardKey = null;
+
+    res.render('view_board', {BoardKey: boardKey});
+});
+
+
 module.exports = router;

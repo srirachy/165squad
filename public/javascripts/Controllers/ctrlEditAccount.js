@@ -10,7 +10,7 @@ angular.module('myApp').controller('ctrlEditAccount', ['$scope', '$uibModal', '$
     $scope.picChanged = false;
 
 
-	$scope.init = function(value) {
+	$scope.init = function() {
 	   $http.get('/api/userInfo')
 	    .success(function (result){
 	      $scope.user = result;

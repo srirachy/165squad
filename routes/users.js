@@ -168,8 +168,6 @@ router.get('/boards/:boardKey/:boardName', function(req, res) {
 router.get('/boards/:boardName', function(req, res) {
 	var boardKey = req.session.boardKey;
 
-	req.session.boardKey = null;
-
     res.render('view_board', {BoardKey: boardKey});
 });
 

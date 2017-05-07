@@ -29,7 +29,6 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
 
           $http.get('/api/getFollowers')
           .success(function (result){
-            console.log(result);
             $scope.followers = result;
           })
           .error(function (data, status){

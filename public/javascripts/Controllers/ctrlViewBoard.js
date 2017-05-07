@@ -1,4 +1,4 @@
-angular.module('myApp').controller('ctrlViewBoard', ['$scope', '$uibModal', '$log', '$http', function($scope, $uibModal, $log, $http){
+angular.module('myApp').controller('ctrlViewBoard', ['$scope', '$uibModal', '$log', '$http', '$window', function($scope, $uibModal, $log, $http, $window){
 
 	$scope.init = function(boardKey) {
 
@@ -133,7 +133,7 @@ angular.module('myApp').controller('ctrlViewBoard', ['$scope', '$uibModal', '$lo
     });
     // This gets called after modal closes
     modalInstance.result.then(function () {
-      // code to select image
+      
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });

@@ -16,20 +16,11 @@
                         <div class="user-name"><% following.FirstName + ' ' + following.LastName %></div>
                 </div>
                 <div class="col span_1_of_2">
-                    <div class="unfollow-button">Unfollow</div>
+                    <div class="unfollow-button" ng-click="unfollow(following.FollowingUserKey, $index)">Unfollow</div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!--<div class="section group bio" ng-repeat="following in followings">
-        <div class="col span_1_of_2">
-            <div id="profile_photo">
-                <img ng-src="<% following.ProfilePicture || '/images/user5.png' %>" ng-cloak id="profile_photo">
-            </div>
-            <div id="name"><% following.FirstName + ' ' + following.LastName %> </div>
-        </div>
-    </div>-->
 
     <script src="/javascripts/home.js"></script>
 </body>

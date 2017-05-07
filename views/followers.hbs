@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PinPin </title>
+    <link rel="stylesheet" href="/stylesheets/following.css">
+    <script src="/javascripts/Controllers/ctrlFollower.js"></script>
+</head>
+<body id = "following_background" ng-controller="ctrlFollower" ng-init="init()">
+
+    <div class="follow">
+        <div class="section group" ng-repeat="follower in followers">
+            <div class="grid-row">
+                <div class="col span_1_of_2">
+                        <img ng-src="<% follower.ProfilePicture || '/images/user5.png' %>" ng-cloak class="profile-photo">
+                        <div class="user-name"><% follower.FirstName + ' ' + follower.LastName %></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascripts/home.js"></script>
+</body>
+</html>

@@ -27,5 +27,19 @@ angular.module('myApp').controller('ctrlFollowing', ['$scope', '$uibModal', '$lo
 		console.log(pin);
 	};
 
+	$scope.unfollow = function(userKey, index){
+		
+		$scope.followings.splice(index,1);
+
+        $http.post('/api/unfollow', {UserKey:userKey})
+          .success(function (result){
+
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
+
+	};
+
 
 }]); 

@@ -174,7 +174,7 @@ router.get('/boards/:boardName', function(req, res) {
 // followers
 router.get('/followers', function(req, res) {
 
-    res.render('following', {});
+    res.render('followers', {});
 });
 
 // following

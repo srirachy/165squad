@@ -1,29 +1,49 @@
 angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '$http', '$window', function($scope, $uibModal, $log, $http, $window){
-   $http.get('/api/boards')
-    .success(function (result){
-      $scope.boards = result;
-    })
-    .error(function (data, status){
-      console.log(data);
-    });
+   
+    $scope.init = function() {
+         $http.get('/api/boards')
+          .success(function (result){
+            $scope.boards = result;
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
 
-    $http.get('/api/userPins')
-    .success(function (result){
-      $scope.pins = result;
-    })
-    .error(function (data, status){
-      console.log(data);
-    });
+          $http.get('/api/userPins')
+          .success(function (result){
+            $scope.pins = result;
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
 
-    $http.get('/api/userInfo')
-    .success(function (result){
-      $scope.user = result;
-    })
-    .error(function (data, status){
-      console.log(data);
-    });
+          $http.get('/api/userInfo')
+          .success(function (result){
+            $scope.user = result;
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
 
-    $scope.boardFilter = 'all';
+          $http.get('/api/getFollowers')
+          .success(function (result){
+            console.log(result);
+            $scope.followers = result;
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
+
+          $http.get('/api/getFollowings')
+          .success(function (result){
+            $scope.followings = result;
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
+
+          $scope.boardFilter = 'all';
+    }
 
     $scope.changeBoardFilter = function (type){
       $scope.boardFilter = type;

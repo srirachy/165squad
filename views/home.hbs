@@ -22,7 +22,7 @@
 {{/if}}
 
 
-<body id = "profile_background" ng-controller="ctrlHome">
+<body id = "profile_background" ng-controller="ctrlHome" ng-init="init()">
 
     <!--showing all boards-->
     <div id = "sliding-wall">
@@ -136,10 +136,10 @@
         </div>
         <div class="col span_1_of_2">
             <div class="follow-detail">
-                <div class="col span_1_of_2 align-right">Followers</div><div class="col span_1_of_2 follow-number-style">#</div>
+                <div class="col span_1_of_2 align-right">Followers</div><div class="col span_1_of_2 follow-number-style" ng-cloak><% followers.length %></div>
             </div>
             <div class="follow-detail">
-                <div class="col span_1_of_2 align-right">Following</div><div class="col span_1_of_2 follow-number-style">#</div>
+                <div class="col span_1_of_2 align-right">Following</div><div class="col span_1_of_2 follow-number-style" ng-cloak><% followings.length %></div>
             </div>
             <div class="follow-detail">
                 <div class="follow-button">

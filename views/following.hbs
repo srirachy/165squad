@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>PinPin </title>
-    <link rel="stylesheet" href="/stylesheets/home.css">
-    <link rel="stylesheet" href="/stylesheets/loader.css">
+    <link rel="stylesheet" href="/stylesheets/following.css">
     <script src="/javascripts/Controllers/ctrlFollowing.js"></script>
 </head>
-<body id = "profile_background" ng-controller="ctrlFollowing" ng-init="init()">
+<body id = "following_background" ng-controller="ctrlFollowing" ng-init="init()">
 
-    <!--Profile info-->
-    <div class="section group bio" ng-repeat="following in followings">
+    <div class="follow">
+        <div class="section group" ng-repeat="following in followings">
+            <div class="grid-row">
+                <div class="col span_1_of_2">
+                        <img ng-src="<% following.ProfilePicture || '/images/user5.png' %>" ng-cloak class="profile-photo">
+                        <div class="user-name"><% following.FirstName + ' ' + following.LastName %></div>
+                </div>
+                <div class="col span_1_of_2">
+                    <div class="unfollow-button">Unfollow</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="section group bio" ng-repeat="following in followings">
         <div class="col span_1_of_2">
             <div id="profile_photo">
                 <img ng-src="<% following.ProfilePicture || '/images/user5.png' %>" ng-cloak id="profile_photo">
             </div>
             <div id="name"><% following.FirstName + ' ' + following.LastName %> </div>
         </div>
-    </div>
+    </div>-->
 
     <script src="/javascripts/home.js"></script>
 </body>

@@ -32,6 +32,17 @@ html.md-default-theme, html, body.md-default-theme, body {
 </style>
 
 <body>
+<div id="page-loading">
+    <div class="loader-background">
+        <span class="loader center-position"><span class="loader-inner"></span></span>
+    </div>
+</div>
+<script type="text/javascript">
+    $(window).on("load", function() {
+        $('#page-loading')
+                .fadeOut('slow');
+    });
+</script>
 
 {{#if user}}
     {{#unless error}}

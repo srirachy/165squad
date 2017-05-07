@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *{
     margin: 0;
     padding: 0;
@@ -117,7 +116,7 @@
 }
 
 .bio .follow-detail:hover .follow-number-style{
-    border-color: var(--secondary);
+    border-left: solid 5px var(--secondary);
 }
 
 .align-right{

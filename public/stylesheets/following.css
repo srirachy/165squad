@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#following_background{
+    background-color: var(--primary);
+    opacity: 1;
+    width: 100%;
+
+    -webkit-animation: fadein 1s ease; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s ease; /* Firefox < 16 */
+    animation: fadein 1s ease;
+}
+
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.follow{
+    width: 65%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.follow .user-info{
+    width: 50%;
+    margin: auto;
+    border: solid;
+}
+
+.follow .profile-photo{
+    position: relative;
+    height: 75px;
+    width: 75px;
+    margin: 0 20px;
+    border: none;
+    border-radius: 100px;
+    float: left;
+}
+
+.follow .user-name{
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 75px;
+    color: var(--gray-white);
+}
+
+.follow .unfollow-button{
+    cursor: pointer;
+    color: var(--secondary);
+    width: 50%;
+    margin-right: 20px;
+    float: right;
+    text-align: center;
+    line-height: 75px;
+    font-size: 1.6vw;
+    letter-spacing: 3px;
+    border: solid 2px;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: all 0.2s;
+    background-color: var(--primary);
+}
+.follow .unfollow-button:hover{
+    color: var(--gray-white);
+    opacity: 0.8;
+}
+
+.grid-row{
+    overflow: auto;
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: solid 1px var(--primary);
+    transition: all 0.2s;
+}
+
+.grid-row:hover{
+    border-color: var(--primary-dark2);
+    background-color: var(--primary-dark1);
+}
+
+/*  SECTIONS  */
+.section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+/*  GRID OF TWO  */
+.span_2_of_2 {
+    width: 100%;
+}
+.span_1_of_2 {
+    width: 49.2%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+    .col {
+        margin: 1% 0 1% 0%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .span_2_of_2, .span_1_of_2 { width: 100%; }
+}
+

@@ -47,6 +47,7 @@
     font-size: 40px;
     opacity: 0;
     color: var(--secondary);
+    transition: all 0.3s ease-in-out;
 }
 
 .profile-photo:hover .change-photo{
@@ -60,7 +61,7 @@
     border-radius: 100px;
     opacity: 0;
     background-color: var(--primary);
-    transition: all 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .profile-photo:hover .shadow-wrapper{

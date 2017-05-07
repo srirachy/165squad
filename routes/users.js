@@ -173,5 +173,17 @@ router.get('/boards/:boardName', function(req, res) {
     res.render('view_board', {BoardKey: boardKey});
 });
 
+// followers
+router.get('/followers', function(req, res) {
+
+    res.render('following', {});
+});
+
+// following
+router.get('/following', function(req, res) {
+
+    res.render('following', {});
+});
+
 
 module.exports = router;

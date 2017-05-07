@@ -1,5 +1,7 @@
 angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '$http', '$window', function($scope, $uibModal, $log, $http, $window){
    
+    $scope.boardFilter = 'all';
+
     $scope.init = function() {
          $http.get('/api/boards')
           .success(function (result){
@@ -42,12 +44,10 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
             console.log(data);
           });
 
-          $scope.boardFilter = 'all';
     }
 
     $scope.changeBoardFilter = function (type){
       $scope.boardFilter = type;
-      console.log(type);
     }
 
   // Open a modal window to update/create/delete a board

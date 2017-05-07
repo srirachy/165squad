@@ -1,4 +1,3 @@
-
 angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '$http', '$window', function($scope, $uibModal, $log, $http, $window){
    $http.get('/api/boards')
     .success(function (result){
@@ -287,6 +286,5 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
   $scope.redirect = function(url){
     $window.location.href = url;
   };
-
 
 }]); 

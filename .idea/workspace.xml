@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bb1559d0-7958-4379-bee3-d25161b6a699" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/feed.hbs" afterPath="$PROJECT_DIR$/views/feed.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/forms/frm_viewPin.hbs" afterPath="$PROJECT_DIR$/views/forms/frm_viewPin.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home.hbs" afterPath="$PROJECT_DIR$/views/home.hbs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/home.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="133" column="17" lean-forward="false" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
+            <state relative-caret-position="272">
+              <caret line="269" column="32" lean-forward="false" selection-start-line="269" selection-start-column="32" selection-end-line="269" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -38,34 +37,9 @@
       <file leaf-file-name="home.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/home.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="147" column="22" lean-forward="true" selection-start-line="147" selection-start-column="22" selection-end-line="147" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="frm_viewPin.hbs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/forms/frm_viewPin.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="162">
+              <caret line="79" column="23" lean-forward="false" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="feed.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/feed.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#span#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -83,8 +57,8 @@
       <file leaf-file-name="www" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="56" column="35" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+            <state relative-caret-position="168">
+              <caret line="58" column="3" lean-forward="true" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -175,21 +149,20 @@
         <option value="$PROJECT_DIR$/public/stylesheets/pin_form.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/bootstrap_original.css" />
         <option value="$PROJECT_DIR$/views/forms/frm_addPin.hbs" />
+        <option value="$PROJECT_DIR$/public/stylesheets/pinform.css" />
         <option value="$PROJECT_DIR$/views/forms/frm_addFromDevice.hbs" />
         <option value="$PROJECT_DIR$/routes/apis.js" />
         <option value="$PROJECT_DIR$/bin/config.json" />
         <option value="$PROJECT_DIR$/public/stylesheets/loader.css" />
         <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/public/stylesheets/edit_account.css" />
+        <option value="$PROJECT_DIR$/public/stylesheets/feed.css" />
         <option value="$PROJECT_DIR$/public/javascripts/feed.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/navbar.css" />
         <option value="$PROJECT_DIR$/public/javascripts/home.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/feed.css" />
         <option value="$PROJECT_DIR$/views/feed.hbs" />
-        <option value="$PROJECT_DIR$/public/stylesheets/pinform.css" />
-        <option value="$PROJECT_DIR$/public/stylesheets/home.css" />
         <option value="$PROJECT_DIR$/views/home.hbs" />
-        <option value="$PROJECT_DIR$/views/forms/frm_viewPin.hbs" />
+        <option value="$PROJECT_DIR$/public/stylesheets/home.css" />
       </list>
     </option>
   </component>
@@ -226,6 +199,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -235,38 +210,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="PinPin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PinPin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PinPin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PinPin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PinPin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="forms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -318,8 +261,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -333,17 +274,17 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\nodejs\PinPin\public\images" />
-      <recent name="C:\nodejs\PinPin\public\fonts" />
-      <recent name="C:\nodejs\PinPin\public\stylesheets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\nodejs\PinPin\public\images" />
       <recent name="C:\nodejs\PinPin\public\javascripts" />
       <recent name="C:\nodejs\PinPin\public\stylesheets\font-awesome\css" />
       <recent name="C:\nodejs\PinPin\public\stylesheets" />
       <recent name="C:\nodejs\PinPin\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\nodejs\PinPin\public\images" />
+      <recent name="C:\nodejs\PinPin\public\fonts" />
+      <recent name="C:\nodejs\PinPin\public\stylesheets" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.www">
@@ -507,13 +448,12 @@
       <workItem from="1493263259833" duration="2711000" />
       <workItem from="1493841286312" duration="13392000" />
       <workItem from="1493919232641" duration="3703000" />
-      <workItem from="1493958126773" duration="3123000" />
-      <workItem from="1494046007671" duration="10214000" />
+      <workItem from="1493958126773" duration="1465000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304425000" />
+    <option name="totallyTimeSpent" value="292553000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -552,6 +492,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/images/test.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -687,6 +632,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/pinform.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="149" column="17" lean-forward="false" selection-start-line="149" selection-start-column="17" selection-end-line="149" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/forms.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -773,6 +725,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/feed.js" />
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/feed.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="742">
+          <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="209" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/navbar.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
@@ -805,6 +764,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="40" column="18" lean-forward="false" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -812,6 +772,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="42" column="18" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="58" column="3" lean-forward="true" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/feed.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -823,63 +800,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/pinform.css">
+    <entry file="file://$PROJECT_DIR$/views/home.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1107">
-          <caret line="191" column="20" lean-forward="false" selection-start-line="191" selection-start-column="20" selection-end-line="191" selection-end-column="20" />
+        <state relative-caret-position="162">
+          <caret line="79" column="23" lean-forward="false" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="56" column="35" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/feed.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/feed.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#span#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/home.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="133" column="17" lean-forward="false" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="147" column="22" lean-forward="true" selection-start-line="147" selection-start-column="22" selection-end-line="147" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/forms/frm_viewPin.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="272">
+          <caret line="269" column="32" lean-forward="false" selection-start-line="269" selection-start-column="32" selection-end-line="269" selection-end-column="32" />
           <folding />
         </state>
       </provider>

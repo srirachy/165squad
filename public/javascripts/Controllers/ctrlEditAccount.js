@@ -128,3 +128,4 @@ angular.module('myApp').controller('ctrlEditAccount', ['$scope', '$uibModal', '$
   };
 
 }]); 
+

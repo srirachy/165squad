@@ -223,6 +223,7 @@
     border: solid 1px;
     color: var(--secondary);
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .view-pin #edit-pin:hover{

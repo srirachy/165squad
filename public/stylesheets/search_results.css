@@ -108,13 +108,23 @@
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
     z-index: 1;
-    font-size: 20px;
+    font-size: 18px;
     color: var(--gray-white);
 }
 
 .element-title #text{
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: auto;
+    padding: 10px;
+    border: solid 2px;
     opacity: 0;
     transition: all 0.3s ease-in-out;
+    word-wrap: break-word;
+}
+.element-title #text:hover{
+    background-color: var(--primary-light);
 }
 
 .element:hover .element-title{

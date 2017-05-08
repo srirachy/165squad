@@ -25,6 +25,10 @@ router.get('/addPinFromExisting', function(req, res, next) {
   res.render('forms/frm_addPinFromExisting', {layout: 'forms_layout.hbs'});
 });
 
+router.get('/editPin', function(req, res, next) {
+  res.render('forms/frm_editPin', {layout: 'forms_layout.hbs'});
+});
+
 
 
 module.exports = router;

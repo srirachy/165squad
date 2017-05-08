@@ -290,8 +290,13 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
       controller: function ($scope, $uibModalInstance) { 
           $scope.pinURL = pin.URL;
 
-          $scope.close = function () {
+
+          $scope.close = function ('close') {
             $uibModalInstance.close();  
+          };
+
+          $scope.edit = function(){
+            $uibModalInstance.close(pin);
           };
       },
       size: 'md',
@@ -301,8 +306,10 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
 
     });
     // This gets called after modal closes
-    modalInstance.result.then(function () {
-
+    modalInstance.result.then(function (item) {
+      if(item != 'close'){
+        editPin(item);
+      }
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
@@ -373,4 +380,83 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
           });
 
   };
+
+    // Edit pin 
+  var editPin = function (pin) {
+    var modalInstance = $uibModal.open({
+      templateUrl: '/forms/editPin',
+      controller: function ($scope, $uibModalInstance, $timeout, $http) {   
+          $http.get('/api/boards')
+          .success(function (result){
+            $scope.boards = result;
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
+
+          $scope.thumbnail = [];
+          $scope.tags = '';
+          $scope.deletable = true;
+
+          // Read the image using the file reader 
+          $scope.fileReaderSupported = window.FileReader != null;
+
+          $scope.pin = pin;
+
+          $scope.savePin = function(board){
+            if(pin.BoardKey == board.BoardKey){
+
+            }else{
+              $http.post('/api/addExistingPin', {BoardKey: board.BoardKey, PinKey: pin.PinKey, tags: $scope.tags})
+                .success(function (result){
+                  $scope.boards = result;
+                })
+                .error(function (data, status){
+                  console.log(data);
+                });
+            }
+
+
+              $uibModalInstance.close();  
+          };
+
+          $scope.delete = function(){
+
+            console.log($scope.pin);
+            // $http.post('/api/addExistingPin', {BoardKey: board.BoardKey, PinKey: pin.PinKey, tags: $scope.tags})
+            //   .success(function (result){
+            //     $scope.boards = result;
+            //   })
+            //   .error(function (data, status){
+            //     console.log(data);
+            //   });
+      
+
+
+              $uibModalInstance.close();  
+          };
+          $scope.saveEdit = function(){
+
+              console.log($scope.pin);     
+
+
+              $uibModalInstance.close();  
+          };
+  
+      },
+      size: 'md',
+      resolve: {
+
+      }
+
+    });
+    // This gets called after modal closes
+    modalInstance.result.then(function () {
+      // code to select image
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+
 }]); 

@@ -21,6 +21,7 @@
     <script src="/javascripts/angular-route.min.js"></script>
     <script src="/javascripts/navbar.js"></script>
     <script src="/javascripts/jquery.cookie.js"></script>
+    <script src="/javascripts/Controllers/ctrlSearch.js"></script>
 
 </head>
 
@@ -61,7 +62,7 @@ html.md-default-theme, html, body.md-default-theme, body {
             {{else}}
                 <a href="/users/home"><li class="nav_elem"><span class="glyphicon glyphicon-user"></span></li></a>
             {{/if}}
-            <li class="nav_elem search"><a href="#"><input type="text" class="search_text"><span class="glyphicon glyphicon-search"></span></a></li>
+            <li class="nav_elem search" ng-controller="ctrlSearch" ng-init="init()"><input type="text" class="search_text" my-enter="search()" ng-model="searchValue"><span class="glyphicon glyphicon-search" ng-click="search()"></span></li>
             {{#if edit_account}}
                 <a href="/users/edit_account"><li class="nav_elem active"><span class="glyphicon glyphicon-wrench"></span></li></a>
             {{else}}

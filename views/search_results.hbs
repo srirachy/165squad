@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PinPin</title>
+    <link rel="stylesheet" href="/stylesheets/feed.css">
+    <script src="/javascripts/Controllers/ctrlSearchResults.js"></script>
+<style>
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+</style>
+</head>
+<body id = "feed_background" ng-controller="ctrlSearchResults" ng-init="init({value: '{{searchValue}}'})">
+<div class="container">
+    <div class="masonry" ng-cloak>
+        <div class = "item" ng-repeat="pin in pins" ng-cloak>
+            <div ng-show="pin.Private == 0">
+                <span class="image-area">
+                    <span class="pin-pin-clicked"></span>
+                    <div class="pin-pin" ng-click="test(pin)"><img style="width: 40px" src="/images/push-pin.png"></div>
+                    <img src="<% pin.URL %>" ng-cloak>
+                </span>
+                <div class="pin-uploader">
+                    <a ng-href="<% '/users/profile/'+ pin.UserKey %>"><span class="uploader-photo"><img style="width: 100%" ng-src="<%pin.ProfilePicture%>" ng-cloak></span></a>
+                    <a ng-href="<% '/users/profile/'+ pin.UserKey %>"><span class="uploader-name"><% pin.FirstName + ' ' + pin.LastName %></span></a>
+                    <span class="follow-uploader" ng-show="pin.Following == 'N' && pin.UserKey != user.UserKey" ng-click="follow(pin.UserKey, $index )">Follow</span>
+                    <span class="follow-uploader" ng-show="pin.Following == 'Y' && pin.UserKey != user.UserKey" ng-click="unfollow(pin.UserKey, $index )">Unfollow</span>
+                </div>
+                <div class="item-options">
+                    <div class="option-element" ng-click="pinIt(pin)"><span class="glyphicon glyphicon-pushpin"></span></div>
+                    <div class="option-element" ng-click="redirect('/users/boards/' + pin.BoardKey + '/' + pin.BoardName)"><span class="glyphicon glyphicon-book"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

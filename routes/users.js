@@ -225,4 +225,11 @@ router.get('/profile/:userKey', function(req, res) {
     res.render('other_user_home', {userKey: userKey});
 });
 
+
+//search params
+router.get('/search/:searchValue', function(req, res) {
+	var searchValue = req.params.searchValue;
+    res.render('search_results', {searchValue: searchValue});
+});
+
 module.exports = router;

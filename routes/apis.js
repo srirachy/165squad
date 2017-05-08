@@ -464,4 +464,39 @@ router.post('/addExistingPin', function(req, res){
 	
 });
 
+
+//Upload Pin
+router.post('/search', function(req, res){
+	var searchValue = req.body.searchValue;
+	var tokens = searchValue.split(" ");
+	var len = tokens.length;
+
+	var where = "";
+
+	if(len > 0){
+		where = where + "Tags like '%" + tokens[0] + "%' "
+
+		for (var i = 1; i < len; i++) {
+		        where = where + "OR Tags like'%" + tokens[i] + "%' "
+		}
+	}else{
+		where = where + "Tags like '%" + "romposshkshosih" + "%' "
+	}
+	
+
+	var params = {UserKey: req.user.UserKey, condition: where};
+
+	async.series([function(callback){
+		User.search(params,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	}
+	], function(err, results){
+		
+		res.json(results[0]);
+	});
+	
+});
+
 module.exports = router;

@@ -99,6 +99,13 @@ exports.followingsCheck = function(params, done){
     })
 }
 
+exports.search = function(params, done){
+  db.get().query('CALL sp_searchTags(' + params.UserKey + ', "' + params.condition + '")' , function (err, rows){
+    if (err) return done(err)
+    done(null,rows[0])
+  })
+}
+
 exports.comparePassword = function(candidatePassword, hash, callback){
 	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
     	if(err) throw err;

@@ -36,7 +36,7 @@
 #underline{
     display: block;
     content: '';
-    border-bottom: solid 1px var(--gray-white);
+    border-bottom: solid 1px var(--main-white);
     transform: scaleX(0);
     animation: exp 0.6s;
     animation-delay: 0.7s;

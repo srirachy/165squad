@@ -10,7 +10,7 @@
 <span id="pin-from-device">
 <div ng-cloak class = "pin-form">
 	<div class="modal-header">
-        Pin Item
+        Edit Pin
 	</div>
 	<div class = "container-fluid" >
 		<div class="row">
@@ -18,7 +18,7 @@
 	   			<form>
                     <div class="col-md-5">
                         <img class="pin-form-image" style="width:100%; height: auto;" ng-src="<% pin.URL %>" />
-                        <textarea class="pin-form-textarea" cols="30" id="tags" name="description" rows="3" placeholder="Enter tags like this: #dog#puppy#canine" ng-model="tags"></textarea>
+                        <textarea class="pin-form-textarea" cols="30" id="tags" name="description" rows="3" placeholder="Enter tags like this: #dog#puppy#canine" ng-model="pin.Tags"></textarea>
 	   				</div>
 	   				<div class="col-md-7 form-boards-list">
 	   					<span id="my-boards">My Boards</span>

@@ -1,0 +1,134 @@
+#view-board_background{
+    background-color: var(--primary);
+    opacity: 1;
+    width: 100%;
+
+    -webkit-animation: fadein 1s ease; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s ease; /* Firefox < 16 */
+    animation: fadein 1s ease;
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.boardHeader{
+    display: block;
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.boardHeader #name{
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: var(--gray-white);
+}
+
+#underline{
+    display: block;
+    content: '';
+    border-bottom: solid 1px var(--gray-white);
+    transform: scaleX(0);
+    animation: exp 0.6s;
+    animation-delay: 0.7s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes exp {
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+    }
+}
+
+.container-box{
+    display: block;
+    box-sizing: border-box;
+    width: 95%;
+    margin: auto;
+    margin-top: 75px;
+}
+
+.container-box .element{
+    cursor: default;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    vertical-align: top;
+    height: 300px;
+    width: 300px;
+    margin: 5px 7px;
+    background-color: var(--primary-light);
+    font-size: 200px;
+    text-align: center;
+    overflow: hidden;
+    color: var(--primary-dark2);
+    box-shadow: 0 2px 5px 0 #000;
+    transition: all 0.3s ease-in-out;
+    padding: 40px;
+}
+
+.element:hover{
+    -webkit-box-shadow: 0 1px 10px 2px #000000;
+    -moz-box-shadow:  0 1px 10px 2px #000000;
+    box-shadow:  0 1px 10px 2px #000000;
+}
+
+.element .glyphicon{
+    cursor: pointer;
+}
+
+.pins-block .element-pin{
+    cursor: default;
+    display: inline-block !important;
+    position: relative;
+    box-sizing: border-box;
+    width: 450px;
+    height: 450px;
+    margin: 5px 7px;
+    font-size: 140px;
+    text-align: center;
+    color: var(--primary-dark2);
+}
+
+.element-pin img{
+    cursor: pointer;
+    vertical-align: middle;
+    box-shadow: 0 6px 15px rgb(0,0,0);
+    max-width: 450px;
+    max-height: 450px;
+    transition: all 0.3s ease-in-out;
+}
+
+.element-pin img:hover{
+    box-shadow: 0 2px 5px 0 #000;
+}
+
+@media only screen and (max-width: 960px) {
+    .container{
+        width: 90% !important;
+        height: auto;
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+
+    .container-box {
+        width: 90% !important;
+        text-align: center;
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}

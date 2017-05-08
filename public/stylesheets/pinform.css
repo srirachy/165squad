@@ -39,9 +39,21 @@
     opacity: 0.8;
     border-radius: 3px;
     background-color: rgba(0,0,0,0);
-    font-size: 12px;
+    font-size: 15px;
     letter-spacing: 2px;
     transition: all 0.2s ease-in-out;
+}
+
+.pin-form .pin-form-button.edit{
+    margin-top: 10px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 0;
+    border: solid 2px;
+}
+
+.pin-form .pin-form-button.edit:hover{
+    background-color: var(--primary);
 }
 
 .pin-form .pin-form-button:hover{

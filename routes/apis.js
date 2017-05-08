@@ -544,4 +544,36 @@ router.post('/searchBoards', function(req, res){
 	
 });
 
+// Update board
+router.post('/updateBoardPin', function(req, res) {
+	var body = req.body;
+	var params = {table:'BoardPin', 
+		set:{Tags: body.Tags}, 
+		where: {BoardPinKey: body.BoardPinKey}};
+
+	async.series([function(callback){
+		User.update(params,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	}
+	], function(err, results){
+		res.json(results[0]);
+	});
+});
+
+//Delete board
+router.post('/deleteBoardPin', function(req, res) {
+	var params = {from: 'BoardPin', where:{BoardPinKey: req.body.BoardPinKey}};
+	async.series([function(callback){
+		User.delete(params,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	}
+	], function(err, results){
+		res.json(results[0]);
+	});
+});
+
 module.exports = router;

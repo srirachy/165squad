@@ -291,8 +291,8 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
           $scope.pinURL = pin.URL;
 
 
-          $scope.close = function ('close') {
-            $uibModalInstance.close();  
+          $scope.close = function () {
+            $uibModalInstance.close('close');  
           };
 
           $scope.edit = function(){
@@ -422,22 +422,28 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
 
           $scope.delete = function(){
 
-            console.log($scope.pin);
-            // $http.post('/api/addExistingPin', {BoardKey: board.BoardKey, PinKey: pin.PinKey, tags: $scope.tags})
-            //   .success(function (result){
-            //     $scope.boards = result;
-            //   })
-            //   .error(function (data, status){
-            //     console.log(data);
-            //   });
-      
+              $http.post('/api/deleteBoardPin', {BoardPinKey: $scope.pin.BoardPinKey})
+                .success(function (result){
+                  $scope.pins = result;
+                })
+                .error(function (data, status){
+                  console.log(data);
+                });
+     
 
 
               $uibModalInstance.close();  
           };
           $scope.saveEdit = function(){
 
-              console.log($scope.pin);     
+             
+              $http.post('/api/updateBoardPin', {BoardPinKey: $scope.pin.BoardPinKey, Tags: $scope.pin.Tags})
+                .success(function (result){
+                  $scope.pins = result;
+                })
+                .error(function (data, status){
+                  console.log(data);
+                });   
 
 
               $uibModalInstance.close();  
@@ -457,6 +463,5 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-
 
 }]); 

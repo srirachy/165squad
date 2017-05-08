@@ -245,6 +245,10 @@
     word-wrap: break-word;
 }
 
+.element-title #text:hover{
+    background-color: var(--primary-light);
+}
+
 .element:hover .element-title{
     height: auto;
     border-top: 1px;

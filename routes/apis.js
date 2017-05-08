@@ -465,7 +465,7 @@ router.post('/addExistingPin', function(req, res){
 });
 
 
-//Upload Pin
+//Search Pin
 router.post('/search', function(req, res){
 	var searchValue = req.body.searchValue;
 	var tokens = searchValue.split(" ");
@@ -488,6 +488,51 @@ router.post('/search', function(req, res){
 
 	async.series([function(callback){
 		User.search(params,function(err, result){
+			if(err) throw err;
+			callback(null, result);
+		});
+	}
+	], function(err, results){
+		
+		res.json(results[0]);
+	});
+	
+});
+
+
+//Search Boards
+router.post('/searchBoards', function(req, res){
+	var searchValue = req.body.searchValue;
+	var tokens = searchValue.split(" ");
+	var len = tokens.length;
+
+	var where = "";
+
+	if(len > 0){
+		where = where + "Name like '%" + tokens[0] + "%' "
+
+		for (var i = 1; i < len; i++) {
+		        where = where + "OR Name like'%" + tokens[i] + "%' "
+		}
+		where = where + "OR Description like '%" + tokens[0] + "%' "
+
+		for (var i = 1; i < len; i++) {
+		        where = where + "OR Description like'%" + tokens[i] + "%' "
+		}
+		where = where + "OR Category like '%" + tokens[0] + "%' "
+
+		for (var i = 1; i < len; i++) {
+		        where = where + "OR Category like'%" + tokens[i] + "%' "
+		}
+	}else{
+		where = where + "Name like '%" + "romposshkshosih" + "%' "
+	}
+	
+
+	var params = {UserKey: req.user.UserKey, condition: where};
+
+	async.series([function(callback){
+		User.searchBoards(params,function(err, result){
 			if(err) throw err;
 			callback(null, result);
 		});

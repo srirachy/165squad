@@ -1,6 +1,6 @@
 angular.module('myApp').controller('ctrlFollowing', ['$scope', '$uibModal', '$log', '$http', function($scope, $uibModal, $log, $http){
 
-	$scope.init = function(boardKey) {
+	$scope.init = function(userKey) {
 
 	    $http.get('/api/userInfo')
 	    .success(function (result){
@@ -10,7 +10,7 @@ angular.module('myApp').controller('ctrlFollowing', ['$scope', '$uibModal', '$lo
 	      console.log(data);
 	    });
 
-      $http.get('/api/getFollowings')
+      $http.get('/api/getFollowings/' + userKey )
       .success(function (result){
         $scope.followings = result;
       })

@@ -138,7 +138,7 @@ router.get('/logout', function(req, res){
 router.get('/home', function(req, res)
 {
     res.render('home', {userFirstName: req.user.FirstName,userLastName: req.user.LastName,
-		home: true, feed: false, logincheck: first_login.switch});
+		home: true, feed: false, logincheck: first_login.switch, userKey: req.user.UserKey});
     	first_login.switch = false;
 });
 
@@ -168,20 +168,61 @@ router.get('/boards/:boardKey/:boardName', function(req, res) {
 router.get('/boards/:boardName', function(req, res) {
 	var boardKey = req.session.boardKey;
 
-    res.render('view_board', {BoardKey: boardKey});
+  	var promises = [new Promise(function(resolve, reject){
+		User.select({from: 'Board', where:{BoardKey: boardKey}},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		// res.json(results[0]);
+
+		if(results[0].length > 0){
+			console.log(results[0][0].UserKey);
+			if(results[0][0].UserKey == req.user.UserKey){
+				res.render('view_board', {BoardKey: boardKey});
+			}else{
+				res.render('other_user_board', {BoardKey: boardKey});
+			}
+		}else{
+			res.render('view_board', {BoardKey: boardKey});
+		}
+		
+	});
+
+
+    
 });
 
 // followers
 router.get('/followers', function(req, res) {
 
-    res.render('followers', {});
+    res.render('followers', {userKey: req.user.UserKey});
+});
+
+// followers other Profile
+router.get('/followers/:userKey', function(req, res) {
+	var userKey = req.params.userKey;
+    res.render('followers', {userKey: userKey});
 });
 
 // following
 router.get('/following', function(req, res) {
 
-    res.render('following', {});
+    res.render('following', {userKey: req.user.UserKey});
 });
 
+// following other Profile
+router.get('/following/:userKey', function(req, res) {
+	var userKey = req.params.userKey;
+    res.render('following', {userKey: userKey});
+});
+
+// other user's profile
+router.get('/profile/:userKey', function(req, res) {
+	var userKey = req.params.userKey;
+    res.render('other_user_home', {userKey: userKey});
+});
 
 module.exports = router;

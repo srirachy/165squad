@@ -65,4 +65,8 @@ angular.module('myApp').controller('ctrlFeed', ['$scope', '$uibModal', '$log', '
 		console.log(pin);
 	};
 
+  $scope.redirect = function(url){
+    $window.location.href = url;
+  };
+
 }]); 

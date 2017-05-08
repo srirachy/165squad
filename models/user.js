@@ -92,6 +92,12 @@ exports.getBoardPins = function(params, done){
     })
 }
 
+exports.followingsCheck = function(params, done){
+  db.get().query('SELECT * FROM ' + params.from + ' WHERE UserKey = ' + params.UserKey + ' AND FollowingUserKey = ' + params.FollowingUserKey , function (err, rows) {
+      if (err) return done(err)
+      done(null, rows)
+    })
+}
 
 exports.comparePassword = function(candidatePassword, hash, callback){
 	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {

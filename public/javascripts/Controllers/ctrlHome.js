@@ -2,8 +2,8 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
    
     $scope.boardFilter = 'all';
 
-    $scope.init = function() {
-         $http.get('/api/boards')
+    $scope.init = function(userKey) {
+         $http.get('/api/boards/' + userKey)
           .success(function (result){
             $scope.boards = result;
           })
@@ -11,7 +11,7 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
             console.log(data);
           });
 
-          $http.get('/api/userPins')
+          $http.get('/api/userPins/' + userKey)
           .success(function (result){
             $scope.pins = result;
           })
@@ -19,7 +19,7 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
             console.log(data);
           });
 
-          $http.get('/api/userInfo')
+          $http.get('/api/userInfo/' + userKey)
           .success(function (result){
             $scope.user = result;
           })
@@ -27,7 +27,7 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
             console.log(data);
           });
 
-          $http.get('/api/getFollowers')
+          $http.get('/api/getFollowers/' + userKey)
           .success(function (result){
             $scope.followers = result;
           })
@@ -35,7 +35,7 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
             console.log(data);
           });
 
-          $http.get('/api/getFollowings')
+          $http.get('/api/getFollowings/' + userKey)
           .success(function (result){
             $scope.followings = result;
           })
@@ -43,6 +43,14 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
             console.log(data);
           });
 
+          $http.get('/api/followingsCheck/' + userKey)
+          .success(function (result){
+            $scope.friend = result;
+            console.log($scope.friend);
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
     }
 
     $scope.changeBoardFilter = function (type){
@@ -306,4 +314,63 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
     $window.location.href = url;
   };
 
+
+  $scope.follow = function(userKey){
+
+        $http.post('/api/follow', {UserKey:userKey})
+          .success(function (result){
+            
+              $http.get('/api/getFollowers/' + userKey)
+              .success(function (result){
+                $scope.followers = result;
+              })
+              .error(function (data, status){
+                console.log(data);
+              });
+
+              $http.get('/api/followingsCheck/' + userKey)
+              .success(function (result){
+                $scope.friend = result;
+                console.log($scope.friend);
+              })
+              .error(function (data, status){
+                console.log(data);
+              });
+
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
+
+  };
+
+
+  $scope.unfollow = function(userKey){
+
+        $http.post('/api/unfollow', {UserKey:userKey})
+          .success(function (result){
+            
+              $http.get('/api/getFollowers/' + userKey)
+              .success(function (result){
+                $scope.followers = result;
+              })
+              .error(function (data, status){
+                console.log(data);
+              });
+
+              $http.get('/api/followingsCheck/' + userKey)
+              .success(function (result){
+                $scope.friend = result;
+                console.log($scope.friend);
+              })
+              .error(function (data, status){
+                console.log(data);
+              });
+
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
+
+  };
 }]); 

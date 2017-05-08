@@ -61,6 +61,21 @@ router.get('/boards', function(req, res) {
 	});
 });
 
+//Get boards other Profile
+router.get('/boards/:userKey', function(req, res) {
+	var userKey = req.params.userKey;
+  	var promises = [new Promise(function(resolve, reject){
+		getBoards(userKey,function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0]);
+	});
+});
+
 //Create new board
 router.post('/boards', function(req, res) {
 	var body = req.body;
@@ -200,6 +215,21 @@ router.get('/userPins', function(req, res) {
 	});
 });
 
+//Get user pins other profile
+router.get('/userPins/:userKey', function(req, res) {
+	var userKey = req.params.userKey;
+  	var promises = [new Promise(function(resolve, reject){
+		User.select({from: 'vUserPins', where:{UserKey: userKey}},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0]);
+	});
+});
+
 //Get user feed
 router.get('/feed', function(req, res) {
   	var promises = [new Promise(function(resolve, reject){
@@ -218,6 +248,21 @@ router.get('/feed', function(req, res) {
 router.get('/userInfo', function(req, res) {
   	var promises = [new Promise(function(resolve, reject){
 		User.select({from: 'vUserInfo', where:{UserKey: req.user.UserKey}},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0][0]);
+	});
+});
+
+//Get user info other Profile
+router.get('/userInfo/:userKey', function(req, res) {
+	var userKey = req.params.userKey;
+  	var promises = [new Promise(function(resolve, reject){
+		User.select({from: 'vUserInfo', where:{UserKey: userKey}},function(err, result){
 			if(err) throw err;
 			resolve(result);
 		});
@@ -339,6 +384,23 @@ router.get('/getFollowers', function(req, res) {
 });
 
 
+//Get followers other Profile
+router.get('/getFollowers/:userKey', function(req, res) {
+	var userKey = req.params.userKey;
+  	var promises = [new Promise(function(resolve, reject){
+		User.select({from: 'vUserFollowers', where:{UserKey: userKey}},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0]);
+	});
+});
+
+
+
 //Get followers
 router.get('/getFollowings', function(req, res) {
   	var promises = [new Promise(function(resolve, reject){
@@ -352,5 +414,38 @@ router.get('/getFollowings', function(req, res) {
 		res.json(results[0]);
 	});
 });
+
+//Get followers other Profile
+router.get('/getFollowings/:userKey', function(req, res) {
+	var userKey = req.params.userKey;
+  	var promises = [new Promise(function(resolve, reject){
+		User.select({from: 'vUserFollowing', where:{UserKey: userKey}},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0]);
+	});
+});
+
+
+// Is my connection
+router.get('/followingsCheck/:FollowingUserKey', function(req, res) {
+	var FollowingUserKey = req.params.FollowingUserKey;
+  	var promises = [new Promise(function(resolve, reject){
+		User.followingsCheck({from: 'vUserFollowing', UserKey: req.user.UserKey, FollowingUserKey: FollowingUserKey},function(err, result){
+			if(err) throw err;
+			resolve(result);
+		});
+	})
+	];
+	Promise.all(promises).then(function(results){
+		res.json(results[0]);
+	});
+});
+
+
 
 module.exports = router;

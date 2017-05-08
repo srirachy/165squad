@@ -8,20 +8,6 @@
     <script src="/javascripts/Controllers/ctrlHome.js"></script>
 </head>
 
-<!--initial loading board-->
-{{#if logincheck}}
-    <div class = "loading-board">
-        <div class = "wrapper">
-            <span class="loader"><span class="loader-inner"></span></span>
-            <span class="loader-text">Welcome {{userFirstName}}!</span>
-        </div>
-    </div>
-    <script>
-        $(".loading-board").delay(5000).fadeOut(400);
-    </script>
-{{/if}}
-
-
 <body id = "profile_background" ng-controller="ctrlHome" ng-init="init({{userKey}})">
 
     <!--showing all boards-->
@@ -31,32 +17,11 @@
             BOARDS
             <div id="underline"></div>
         </div>
-        <div class="filter-buttons">
-            <span class="f-b-wrapper" id="all" ng-click="changeBoardFilter('all')">All</span>
-            <span class="f-b-wrapper" id="public" ng-click="changeBoardFilter('public')">Public</span>
-            <span class="f-b-wrapper" id="private" ng-click="changeBoardFilter('private')">Private</span>
-        </div>
+
         <div class = "boards-wrapper">
         <div class="container">
-            <div class="container-box" ng-show="boardFilter == 'all'">
-                <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
-
-                <span id="all-boards">
-                    <div style="display: inline-block" ng-repeat="board in boards">
-                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" >
-                            <div class="element-title">
-                                <span id="text"><%board.Name%></span>
-                            </div>
-                            <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
-                            <div class="shadow-wrapper" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)"></div>
-                            <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
-                        </div>
-                    </div>
-                </span>
-            </div>
-            <div class="container-box" ng-show="boardFilter == 'public'">
-                <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
-
+            <div class="container-box">
+                
                 <span id="all-boards">
                     <div style="display: inline-block" ng-repeat="board in boards">
                         <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-show="board.Private == 0">
@@ -65,23 +30,6 @@
                             </div>
                             <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
                             <div class="shadow-wrapper" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)" ng-cloak></div>
-                            <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
-                        </div>
-                    </div>
-                </span>
-            </div>
-            <div class="container-box" ng-show="boardFilter == 'private'">
-                <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
-
-                <span id="all-boards">
-                    <div style="display: inline-block" ng-repeat="board in boards">
-                        <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-show="board.Private == 1">
-                            <div class="element-title">
-                                <span id="text"><%board.Name%></span>
-                            </div>
-                            <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
-                            <div class="shadow-wrapper" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)" ng-cloak></div>
-                            <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
                         </div>
                     </div>
                 </span>
@@ -100,7 +48,7 @@
         <div class = "pin-wrapper-2">
         <div class="container">
         <div class="container-box">
-            <a ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
+            
             <span class="pins-block">
                 <span ng-repeat="pin in pins">
                     <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-click="viewPin(pin)">
@@ -132,16 +80,25 @@
             <div id="profile_photo">
                 <img ng-src="<% user.ProfilePicture || '/images/user5.png' %>" ng-cloak id="profile_photo">
             </div>
-            <div id="name">{{userFirstName}} {{userLastName}} </div>
+            <div id="name"><% user.FirstName + ' ' + user.LastName %> </div>
         </div>
         <div class="col span_1_of_2">
             <div class="follow-detail">
-                <div class="col span_1_of_2 align-right" ng-click="redirect('/users/followers')">Followers</div><div class="col span_1_of_2 follow-number-style" ng-cloak><% followers.length %></div>
+                <a ng-href="<% '/users/followers/' + user.UserKey %>"><div class="col span_1_of_2 align-right">Followers</div><div class="col span_1_of_2 follow-number-style" ng-cloak><% followers.length %></div></a>
             </div>
             <div class="follow-detail">
-                <div class="col span_1_of_2 align-right" ng-click="redirect('/users/following')">Following</div><div class="col span_1_of_2 follow-number-style" ng-cloak><% followings.length %></div>
+                <a ng-href="<% '/users/following/' + user.UserKey %>"><div class="col span_1_of_2 align-right">Following</div><div class="col span_1_of_2 follow-number-style" ng-cloak><% followings.length %></div></a>
             </div>
-
+            <div class="follow-detail">
+                <div class="follow-button" ng-click="follow(user.UserKey)" ng-hide="friend.length > 0" ng-cloak>
+                    <span style="font-size: 12px"></span>
+                    Follow
+                </div>
+                <div class="follow-button" ng-click="unfollow(user.UserKey)" ng-show="friend.length > 0" ng-cloak>
+                    <span style="font-size: 12px"></span>
+                    Unfollow
+                </div>
+            </div>
         </div>
     </div>
 
@@ -153,7 +110,6 @@
             <div id="show-all-listener"><span id="boards">VIEW ALL</span></div>
         </div>
         <div class="container-box">
-            <div style="display: inline-block"><div class="element"><span class="glyphicon glyphicon-plus-sign" ng-click="openBoardFormModal('md', {BoardKey: 0},-1)" ></span></div></div>
             <div style="display: inline-block" ng-repeat="board in boards|limitTo:3">
                 <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false">
                     <div class="element-title">
@@ -161,7 +117,6 @@
                     </div>
                     <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
                     <div class="shadow-wrapper" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)"></div>
-                    <div class="element-edit" ng-show="options" ng-click="openBoardFormModal('md', board, $index)"><span class="glyphicon glyphicon-edit"></span></div>
                 </div>
             </div>
         </div>
@@ -174,7 +129,6 @@
             <div id="show-all-listener"><span id="pins">VIEW ALL</span></div>
         </div>
         <div class="container-box">
-            <a ng-click="addPin('sm')"><div class="element"><span class="glyphicon glyphicon-plus-sign"></span></div></a>
             <span class="pins-block">
                 <span ng-repeat="pin in pins|limitTo:3">
                     <div class="element-pin" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-click="viewPin(pin)">

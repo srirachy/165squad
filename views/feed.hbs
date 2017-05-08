@@ -22,8 +22,8 @@
                     <img src="<% pin.URL %>" ng-cloak>
                 </span>
                 <div class="pin-uploader">
-                    <span class="uploader-photo"><img style="width: 100%" ng-src="<%pin.ProfilePicture%>" ng-cloak></span>
-                    <span class="uploader-name"><% pin.FirstName + ' ' + pin.LastName %></span>
+                    <a ng-href="<% '/users/profile/'+ pin.UserKey %>"><span class="uploader-photo"><img style="width: 100%" ng-src="<%pin.ProfilePicture%>" ng-cloak></span></a>
+                    <a ng-href="<% '/users/profile/'+ pin.UserKey %>"><span class="uploader-name"><% pin.FirstName + ' ' + pin.LastName %></span></a>
                     <span class="follow-uploader" ng-show="pin.Following == 'N' && pin.UserKey != user.UserKey" ng-click="follow(pin.UserKey, $index )">Follow</span>
                     <span class="follow-uploader" ng-show="pin.Following == 'Y' && pin.UserKey != user.UserKey" ng-click="unfollow(pin.UserKey, $index )">Unfollow</span>
                 </div>

@@ -18,6 +18,41 @@ angular.module('myApp').controller('ctrlViewBoard', ['$scope', '$uibModal', '$lo
 	      console.log(data);
 	    });
 
+      // $scope.editable = false;
+
+      // var promises = [new Promise(function(resolve, reject){
+      //     $http.post('/api/boardPins', {BoardKey:boardKey})
+      //     .success(function (result){
+      //       $scope.pins = result;
+      //       resolve(result);
+      //     })
+      //     .error(function (data, status){
+      //       console.log(data);
+      //       reject(data);
+      //     });
+      // })
+      // ,new Promise(function(resolve, reject){
+
+      //     $http.get('/api/userInfo')
+      //     .success(function (result){
+      //       $scope.user = result;
+      //       resolve(result);
+      //     })
+      //     .error(function (data, status){
+      //       console.log(data);
+      //       reject(data);
+      //     });
+      // })
+      // ];
+
+      // Promise.all(promises).then(function(results){
+      //    if($scope.pins.length > 0){
+      //       if($scope.pins[0].UserKey == $scope.user.UserKey){
+      //         $scope.editable = true;
+      //       }
+      //    }
+      // });
+
 	};
 
 

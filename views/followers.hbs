@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="/stylesheets/following.css">
     <script src="/javascripts/Controllers/ctrlFollower.js"></script>
 </head>
-<body id = "following_background" ng-controller="ctrlFollower" ng-init="init()">
+<body id = "following_background" ng-controller="ctrlFollower" ng-init="init({{userKey}})">
 
     <div class="follow">
         <div class="section group" ng-repeat="follower in followers">
             <div class="grid-row">
                 <div class="col span_1_of_2">
-                        <img ng-src="<% follower.ProfilePicture || '/images/user5.png' %>" ng-cloak class="profile-photo">
-                        <div class="user-name"><% follower.FirstName + ' ' + follower.LastName %></div>
+                        <a ng-href="<% '/users/profile/'+ follower.FollowerUserKey %>"><img ng-src="<% follower.ProfilePicture || '/images/user5.png' %>" ng-cloak class="profile-photo"></a>
+                        <a ng-href="<% '/users/profile/'+ follower.FollowerUserKey %>"> <div class="user-name"><% follower.FirstName + ' ' + follower.LastName %></div></a>
                 </div>
             </div>
         </div>

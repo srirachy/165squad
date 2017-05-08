@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>PinPin</title>
     <link rel="stylesheet" href="/stylesheets/feed.css">
+    <link rel="stylesheet" href="/stylesheets/search_results.css">
     <script src="/javascripts/Controllers/ctrlSearchResults.js"></script>
 <style>
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -12,7 +13,19 @@
 </style>
 </head>
 <body id = "feed_background" ng-controller="ctrlSearchResults" ng-init="init({value: '{{searchValue}}'})">
-<div class="container">
+
+<div id="filter">
+<div class="section group">
+    <div class="col span_1_of_2">
+        <div class="search-filter" id="search-pins">Pins</div>
+    </div>
+    <div class="col span_1_of_2">
+        <div class="search-filter" id="search-boards">Boards</div>
+    </div>
+</div>
+</div>
+
+<div class="container" id="search-pins-results">
     <div class="masonry" ng-cloak>
         <div class = "item" ng-repeat="pin in pins" ng-cloak>
             <div ng-show="pin.Private == 0">
@@ -36,5 +49,10 @@
     </div>
 </div>
 
+<div id="search-boards-results" style="color: #c0c0c0">
+    Boards Results
+</div>
+
+<script src="/javascripts/search-filter.js"></script>
 </body>
 </html>

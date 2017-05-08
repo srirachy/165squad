@@ -1,0 +1,67 @@
+#feed_background #filter{
+    width: 70%;
+    margin: auto;
+}
+
+/*  SECTIONS  */
+.section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 3%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+/*  GRID OF TWO  */
+.span_2_of_2 {
+    width: 100%;
+}
+.span_1_of_2 {
+    width: 48.5%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+    .col {
+        margin: 1% 0 1% 0%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .span_2_of_2, .span_1_of_2 { width: 100%; }
+}
+
+.search-filter{
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    width: 30%;
+    text-align: center;
+    padding:10px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--main-white);
+    border: solid 1px;
+    transition: all 0.2s;
+}
+
+.search-filter.selected{
+    background-color: var(--primary-dark2);
+    color: var(--secondary);
+}
+
+.search-filter:hover{
+    color: var(--secondary-bright);
+}

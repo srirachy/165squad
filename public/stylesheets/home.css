@@ -379,18 +379,6 @@ a{
     box-shadow: 0 2px 5px 0 #000;
 }
 
-.element-pin img.wide{
-    width: 100%;
-}
-
-.element-pin img.portrait{
-    height: 100%;
-}
-
-.element-pin img.square{
-    width: 100%;
-}
-
 @media only screen and (max-width: 960px) {
     .container{
         width: 90% !important;

@@ -164,6 +164,11 @@
     color: var(--gray-white);
 }
 
+.pin-uploader a{
+    color:inherit;
+    text-decoration: inherit;
+}
+
 .pin-uploader .uploader-photo{
     width: 40px;
     height: 40px;

@@ -86,7 +86,7 @@ exports.deleteFollower = function(params, done){
 
 
 exports.getBoardPins = function(params, done){
-  db.get().query('SELECT * FROM ' + params.from + ' WHERE UserKey = ' + params.UserKey + ' AND BoardKey = ' + params.BoardKey , function (err, rows) {
+  db.get().query('SELECT * FROM ' + params.from + ' WHERE BoardKey = ' + params.BoardKey , function (err, rows) {
       if (err) return done(err)
       done(null, rows)
     })

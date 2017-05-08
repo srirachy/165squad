@@ -1,4 +1,4 @@
-angular.module('myApp').controller('ctrlFeed', ['$scope', '$uibModal', '$log', '$http', function($scope, $uibModal, $log, $http){
+angular.module('myApp').controller('ctrlFeed', ['$scope', '$uibModal', '$log', '$http', '$window', function($scope, $uibModal, $log, $http, $window){
 
 	$scope.init = function(value) {
 	   $http.get('/api/feed')
@@ -68,5 +68,56 @@ angular.module('myApp').controller('ctrlFeed', ['$scope', '$uibModal', '$log', '
   $scope.redirect = function(url){
     $window.location.href = url;
   };
+
+
+    // Add pin from Device modal
+  $scope.pinIt = function (pin) {
+    var modalInstance = $uibModal.open({
+      templateUrl: '/forms/addPinFromExisting',
+      controller: function ($scope, $uibModalInstance, $timeout, $http) {   
+          $http.get('/api/boards')
+          .success(function (result){
+            $scope.boards = result;
+          })
+          .error(function (data, status){
+            console.log(data);
+          });
+
+          $scope.thumbnail = [];
+          $scope.tags = '';
+
+          // Read the image using the file reader 
+          $scope.fileReaderSupported = window.FileReader != null;
+
+          $scope.pin = pin;
+
+          $scope.savePin = function(board){
+	            
+	        $http.post('/api/addExistingPin', {BoardKey: board.BoardKey, PinKey: pin.PinKey, tags: $scope.tags})
+	          .success(function (result){
+	            $scope.boards = result;
+	          })
+	          .error(function (data, status){
+	            console.log(data);
+	          });
+
+            $uibModalInstance.close();  
+          };
+  
+      },
+      size: 'md',
+      resolve: {
+
+      }
+
+    });
+    // This gets called after modal closes
+    modalInstance.result.then(function () {
+      // code to select image
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
 
 }]); 

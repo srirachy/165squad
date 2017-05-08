@@ -28,8 +28,8 @@
                     <span class="follow-uploader" ng-show="pin.Following == 'Y' && pin.UserKey != user.UserKey" ng-click="unfollow(pin.UserKey, $index )">Unfollow</span>
                 </div>
                 <div class="item-options">
-                    <div class="option-element"><span class="glyphicon glyphicon-pushpin"></span></div>
-                    <div class="option-element"><span class="glyphicon glyphicon-book"></span></div>
+                    <div class="option-element" ng-click="pinIt(pin)"><span class="glyphicon glyphicon-pushpin"></span></div>
+                    <div class="option-element" ng-click="redirect('/users/boards/' + pin.BoardKey + '/' + pin.BoardName)"><span class="glyphicon glyphicon-book"></span></div>
                 </div>
             </div>
         </div>

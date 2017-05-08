@@ -358,7 +358,7 @@ router.post('/unfollow', function(req, res) {
 //Get board pins
 router.post('/boardPins', function(req, res) {
   	var promises = [new Promise(function(resolve, reject){
-		User.getBoardPins({from: 'vUserPins', UserKey: req.user.UserKey, BoardKey: req.body.BoardKey},function(err, result){
+		User.getBoardPins({from: 'vUserPins', BoardKey: req.body.BoardKey},function(err, result){
 			if(err) throw err;
 			resolve(result);
 		});
@@ -446,6 +446,22 @@ router.get('/followingsCheck/:FollowingUserKey', function(req, res) {
 	});
 });
 
-
+//Upload Pin
+router.post('/addExistingPin', function(req, res){
+	var body = req.body;
+	var params = {into: 'BoardPin', values: [{PinKey: body.PinKey, BoardKey: body.BoardKey, Tags: body.tags}]};
+	async.series([function(callback){
+		User.insert(params,function(err, result){
+			if(err) throw err;
+			pinKey = result;
+			callback(null, result);
+		});
+	}
+	], function(err, results){
+		
+		res.json(results[0]);
+	});
+	
+});
 
 module.exports = router;

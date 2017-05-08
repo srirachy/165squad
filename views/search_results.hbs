@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>PinPin</title>
     <link rel="stylesheet" href="/stylesheets/feed.css">
+    <link rel="stylesheet" href="/stylesheets/loader.css">
     <link rel="stylesheet" href="/stylesheets/search_results.css">
     <script src="/javascripts/Controllers/ctrlSearchResults.js"></script>
 <style>
@@ -17,10 +18,10 @@
 <div id="filter">
 <div class="section group">
     <div class="col span_1_of_2">
-        <div class="search-filter" id="search-pins">Pins</div>
+        <div class="search-filter" id="search-pins" ng-click="changeFilter('pins')">Pins</div>
     </div>
     <div class="col span_1_of_2">
-        <div class="search-filter" id="search-boards">Boards</div>
+        <div class="search-filter" id="search-boards" ng-click="changeFilter('boards')">Boards</div>
     </div>
 </div>
 </div>
@@ -50,7 +51,24 @@
 </div>
 
 <div id="search-boards-results" style="color: #c0c0c0">
-    Boards Results
+    <div class = "boards-wrapper" >
+    <div class="container">
+        <div class="container-box">
+            
+            <span id="all-boards">
+                <div style="display: inline-block" ng-repeat="board in boards">
+                    <div class="element board-wrapper" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-show="board.Private == 0">
+                        <div class="element-title">
+                            <span id="text"><%board.Name%></span>
+                        </div>
+                        <img class="board-view" ng-src="<%board.URL || 'http://i.imgur.com/Fx6BGlt.jpg'%>">
+                        <div class="shadow-wrapper" ng-click="redirect('/users/boards/' + board.BoardKey + '/' + board.Name)" ng-cloak></div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    </div>
 </div>
 
 <script src="/javascripts/search-filter.js"></script>

@@ -2,6 +2,10 @@ angular.module('myApp').controller('ctrlSearchResults', ['$scope', '$uibModal', 
 
 	$scope.init = function(search) {
 
+      $scope.searchIn = 'pins';
+      $scope.boards = [];
+      $scope.searchValue = search.value;
+
       $http.post('/api/search', {searchValue: search.value})
         .success(function (result){
           $scope.pins = result;
@@ -69,6 +73,35 @@ angular.module('myApp').controller('ctrlSearchResults', ['$scope', '$uibModal', 
     $window.location.href = url;
   };
 
+  $scope.changeFilter = function(filter){
+
+
+    if(filter == 'boards'){
+
+      $http.post('/api/searchBoards', {searchValue: $scope.searchValue})
+        .success(function (result){
+          $scope.boards = result;
+          $scope.searchIn = filter;
+          console.log($scope.boards);
+        })
+        .error(function (data, status){
+          console.log(data);
+        });
+
+    }else{
+
+      $http.post('/api/search', {searchValue: $scope.searchValue})
+        .success(function (result){
+          $scope.pins = result;
+          $scope.searchIn = filter;
+        })
+        .error(function (data, status){
+          console.log(data);
+        });
+    }
+
+
+  };
 
     // Add pin from Device modal
   $scope.pinIt = function (pin) {

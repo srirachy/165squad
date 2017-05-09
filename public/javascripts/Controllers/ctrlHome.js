@@ -424,7 +424,9 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
 
               $http.post('/api/deleteBoardPin', {BoardPinKey: $scope.pin.BoardPinKey})
                 .success(function (result){
-                  $scope.pins = result;
+                  $window.location.reload();
+
+
                 })
                 .error(function (data, status){
                   console.log(data);
@@ -440,6 +442,7 @@ angular.module('myApp').controller('ctrlHome', ['$scope', '$uibModal', '$log', '
               $http.post('/api/updateBoardPin', {BoardPinKey: $scope.pin.BoardPinKey, Tags: $scope.pin.Tags})
                 .success(function (result){
                   $scope.pins = result;
+                  $window.location.reload();
                 })
                 .error(function (data, status){
                   console.log(data);
